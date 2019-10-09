@@ -9,7 +9,7 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="User")
+@Table(name="USER_")
 public class User {
 	//CONSTRUCTORS
 	public User() {

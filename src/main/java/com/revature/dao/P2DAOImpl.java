@@ -1,5 +1,8 @@
 package com.revature.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -44,7 +47,7 @@ public class P2DAOImpl implements P2DAO {
 		boolean added = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			s.persist(score);
+			s.save(score);
 			tx.commit();
 			added = true;
 			System.out.println(s.getStatistics());
@@ -56,7 +59,7 @@ public class P2DAOImpl implements P2DAO {
 		boolean added = false;
 		try (Session s = sf.openSession()) {
 			Transaction tx = s.beginTransaction();
-			s.persist(win);
+			s.save(win);
 			tx.commit();
 			added = true;
 			System.out.println(s.getStatistics());
@@ -68,11 +71,18 @@ public class P2DAOImpl implements P2DAO {
 	public boolean updateWin(Win win) {
 		boolean updated = false;
 		try (Session s = sf.openSession()) {
-			//Query to get original WIN
-	        Query query = s.createQuery("SELECT * FROM WIN WHERE USER_ID = :var1 AND GAME_ID = :var2");
+			//Query to get original WIN, for the WIN_ID
+			//"Table name" is actually the class name
+	        Query query = s.createQuery("FROM Win WHERE USER_ID = :var1 AND GAME_ID = :var2");
 	        query.setParameter("var1", win.getUser());
 	        query.setParameter("var2", win.getGame());
-	        Win original = (Win) query.getSingleResult();
+	        List resultList = query.list();
+	        if (resultList.size() == 0) {
+	        	addWin(win);
+	        	return updated;
+	        }
+	        Win original = (Win) resultList.get(0);
+	        //Modify original WIN
 	        Transaction tx = s.beginTransaction();
 	        original.setCount(win.getCount());
 			s.update(original);
@@ -82,5 +92,4 @@ public class P2DAOImpl implements P2DAO {
 		}
 		return updated;
 	}
-
 }

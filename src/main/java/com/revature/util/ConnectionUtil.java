@@ -14,7 +14,7 @@ public class ConnectionUtil {
 				Configuration c = new Configuration();
 				c.setProperty("hibernate.connection.username", System.getenv("DEMO_DB_USERNAME"));
 				c.setProperty("hibernate.connection.password", System.getenv("DEMO_DB_PASSWORD"));
-				c.setProperty("hibernate.connection.url", System.getenv("HEY_WORK")); //Changed mine to this
+				c.setProperty("hibernate.connection.url", System.getenv("DEMO_DB_URL")); 	
 				c.configure();
 
 				sessionFactory = c.buildSessionFactory();
