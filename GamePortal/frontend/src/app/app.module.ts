@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { Game2Component } from './game2/game2.component';
 import { FloppybirdComponent } from './floppybird/floppybird.component';
 import { ColorjumperComponent } from './colorjumper/colorjumper.component';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { ColorjumperComponent } from './colorjumper/colorjumper.component';
 
     FloppybirdComponent,
 
-    ColorjumperComponent
+    ColorjumperComponent,
+
+    UserComponent
   ],
   imports: [
     BrowserModule,
