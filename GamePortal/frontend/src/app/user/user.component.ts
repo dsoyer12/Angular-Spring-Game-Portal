@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 
 @Component({
-  selector: 'app-employee',
-  templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
 

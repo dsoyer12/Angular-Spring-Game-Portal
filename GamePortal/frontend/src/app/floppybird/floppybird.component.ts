@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import  'src/floppy.js';
 
 // System.import('floppy.js'); //or below one
-// declare startGame2: any;
+declare var startGame2: any;
 
 @Component({
   selector: 'app-floppybird',
