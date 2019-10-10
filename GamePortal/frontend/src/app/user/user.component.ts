@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css']
+  selector: 'app-employee',
+  templateUrl: './employee.component.html',
+  styleUrls: ['./employee.component.css']
 })
 export class UserComponent implements OnInit {
 
@@ -26,3 +26,4 @@ handleSuccessfulResponse(response)
 }
 
 }
+

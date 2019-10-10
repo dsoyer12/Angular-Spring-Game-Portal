@@ -23,6 +23,6 @@ export class HttpClientService {
      getUser()
   {
     console.log("test call");
-    return this.httpClient.get<Users[]>('http://localhost:8080/User');
+    return this.httpClient.get<User[]>('http://localhost:8080/User');
   }
 }
