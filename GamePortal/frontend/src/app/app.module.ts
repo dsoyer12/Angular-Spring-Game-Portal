@@ -10,7 +10,10 @@ import { ColorjumperComponent } from './colorjumper/colorjumper.component';
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ScoreComponent } from './score/score.component';
-import { HighscoreComponent } from './highscore/highscore.component';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -26,14 +29,18 @@ import { HighscoreComponent } from './highscore/highscore.component';
 
     ScoreComponent,
 
-    HighscoreComponent
+
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MDBBootstrapModule.forRoot()
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]
+
 })
 export class AppModule { }

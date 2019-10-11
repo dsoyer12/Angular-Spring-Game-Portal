@@ -1,5 +1,6 @@
 var myGamePiece;
-// driver function to initialize game components
+var myGamePiece2
+    // driver function to initialize game components
 function startGame() {
     myGameArea.start();
     myGamePiece = new component(20, 90, "black", 1, 50);
