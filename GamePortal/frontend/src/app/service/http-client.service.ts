@@ -10,6 +10,17 @@ export class User{
   ) {}
 }
 
+export class Score{
+  constructor(
+    public Score_ID:number,
+    public Scores:number,
+    public Game_ID:number,
+    public User_ID:number,
+
+
+  ) {}
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,9 +31,15 @@ export class HttpClientService {
   ) {
      }
 
-     getUser()
+     getUsers()
   {
     console.log("test call");
     return this.httpClient.get<User[]>('http://localhost:8080/User');
+  }
+
+  getScores()
+  {
+    console.log("test call");
+    return this.httpClient.get<Score[]>('http://localhost:8080/Scores');
   }
 }
