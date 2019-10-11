@@ -8,6 +8,9 @@ import { Game2Component } from './game2/game2.component';
 import { FloppybirdComponent } from './floppybird/floppybird.component';
 import { ColorjumperComponent } from './colorjumper/colorjumper.component';
 import { UserComponent } from './user/user.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ScoreComponent } from './score/score.component';
+import { HighscoreComponent } from './highscore/highscore.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,16 @@ import { UserComponent } from './user/user.component';
 
     ColorjumperComponent,
 
-    UserComponent
+    UserComponent,
+
+    ScoreComponent,
+
+    HighscoreComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

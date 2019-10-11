@@ -12,9 +12,9 @@ public class ConnectionUtil {
 		try {
 			if(sessionFactory == null) {
 				Configuration c = new Configuration();
-				c.setProperty("hibernate.connection.username", System.getenv("DEMO_DB_USERNAME"));
-				c.setProperty("hibernate.connection.password", System.getenv("DEMO_DB_PASSWORD"));
-				c.setProperty("hibernate.connection.url", System.getenv("DEMO_DB_URL")); 	
+				c.setProperty("hibernate.connection.username", System.getenv("DB_USERNAME"));
+				c.setProperty("hibernate.connection.password", System.getenv("DB_PASSWORD"));
+				c.setProperty("hibernate.connection.url", System.getenv("DB_URL")); 	
 				c.configure();
 
 				sessionFactory = c.buildSessionFactory();

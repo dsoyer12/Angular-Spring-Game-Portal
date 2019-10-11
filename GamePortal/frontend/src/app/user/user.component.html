@@ -1,15 +1,16 @@
 <table border="1">
     <thead></thead>
     <tr>
-        <th>Username</th>
+        <th>Users</th>
         <th>
-            <User_ID/th>
+            User_ID</th>
     </tr>
 
     <tbody>
         <tr *ngFor="let User of Users">
             <td>{{User.USERNAME}}</td>
             <td>{{User.USER_ID}}</td>
+            <td>{{User.PASSWORD}}</td>
         </tr>
     </tbody>
 </table>

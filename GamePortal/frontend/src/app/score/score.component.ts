@@ -2,27 +2,27 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  selector: 'app-score',
+  templateUrl: './score.component.html',
+  styleUrls: ['./score.component.scss']
 })
-export class UserComponent implements OnInit {
+export class ScoreComponent implements OnInit {
 
-  Users:any [];
+  Scores:any [];
 
   constructor(
     private httpClientService:HttpClientService
   ) { }
 
   ngOnInit() {
-    this.httpClientService.getUsers().subscribe(
+    this.httpClientService.getScores().subscribe(
      response =>this.handleSuccessfulResponse(response),
     );
   }
 
 handleSuccessfulResponse(response)
 {
-    this.Users=response;
+    this.Scores=response;
 }
 
 }
