@@ -106,7 +106,7 @@ public class P2DAOImpl implements P2DAO {
 		}
 		return target;
 	}
-	//WIN FUNCTIONS
+	//GAME FUNCTIONS
 	//SCORE FUNCTIONS
 	@Override
 	public List<Score> top10Scores(Game game) {
