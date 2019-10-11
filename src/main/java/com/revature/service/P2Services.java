@@ -21,28 +21,39 @@ public class P2Services {
 		this.dao = dao;
 	}
 	
-	public boolean addUser(User user) {
-		return dao.addUser(user);
+	public void addUser(User user) {
+		 dao.addUser(user);
 	}
 
-	public boolean addGame(Game game) {
-		return dao.addGame(game);
+	public void addGame(Game game) {
+		 dao.addGame(game);
 	}
-	public boolean addScore(Score score) {
-		return dao.addScore(score);
+	public void addScore(Score score) {
+		 dao.addScore(score);
 	}
-	public boolean addWin(Win win) {
-		return dao.addWin(win);
+	public void addWin(Win win) {
+		 dao.addWin(win);
 	}
-	public boolean updateWin(Win win) {
-		return dao.updateWin(win);
+	public void updateWin(Win win) {
+		 dao.updateWin(win);
 	}
 	public User getUserByUsernamePassword (User user) {
-		return dao.getUserByUsernamePassword(user);
+		 return dao.getUserByUsernamePassword(user);
 	}
 
 	public List<User> getAllUsers() {
-		return dao.getAllUsers();
+		 return dao.getAllUsers();
+	}
+
+	public List<Game> getAllGames() {
+		return dao.getAllGames();
 	}
 	
+	public List<Score> getAllScores() {
+		 return dao.getAllScores();
+	}
+
+	public List<Win> getAllWins() {
+		return dao.getAllWins();
+	}
 }
