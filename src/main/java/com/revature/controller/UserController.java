@@ -18,7 +18,7 @@ import com.revature.service.P2Services;
 
 @Controller
 @RequestMapping(value = "/user")
-public class P2Controller {
+public class UserController {
 
 	private P2Services p2s;
 
