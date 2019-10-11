@@ -1,4 +1,7 @@
-<table border="1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+<table class="table table-bordered" border="1">
     <thead></thead>
     <tr>
         <th>Your Scores</th>
@@ -7,7 +10,7 @@
     </tr>
 
     <tbody>
-        <tr *ngFor="let Score of Scores">
+        <tr class="bg-warning" *ngFor="let Score of Scores">
             <td>{{Score.Score_ID}}</td>
             <td>{{Score.Scores}}</td>
             <td>{{Score.Game_ID}}</td>
