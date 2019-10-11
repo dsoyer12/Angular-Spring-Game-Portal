@@ -1,19 +1,18 @@
 package com.revature.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.revature.beans.Game;
-import com.revature.beans.Score;
-import com.revature.beans.User;
-import com.revature.beans.Win;
+import com.revature.model.Game;
+import com.revature.model.Score;
+import com.revature.model.User;
+import com.revature.model.Win;
 
 @Repository(value="P2DAO")
 public class P2DAOImpl implements P2DAO {
@@ -21,63 +20,71 @@ public class P2DAOImpl implements P2DAO {
 	private SessionFactory sf;
 	
 	@Autowired //constructor injection
-	public P2DAOImpl(SessionFactory sessionFactory) {
+	public P2DAOImpl(SessionFactory sf) {
 		this.sf = sf;
 	}
 	
+	@Transactional
 	@Override
 	public boolean addUser(User user) {
 		boolean added = false;
-		try (Session s = sf.openSession()) {
-			Transaction tx = s.beginTransaction();
+		try (Session s = sf.getCurrentSession()) {
+			//Transaction tx = s.beginTransaction();
 			s.persist(user);
-			tx.commit();
+			//tx.commit();
 			added = true;
 			System.out.println(s.getStatistics());
 		}
 		return added;
 	}
 
+	@Transactional
+	@Override
 	public boolean addGame(Game game) {
 		boolean added = false;
-		try (Session s = sf.openSession()) {
-			Transaction tx = s.beginTransaction();
+		try (Session s = sf.getCurrentSession()) {
+			//Transaction tx = s.beginTransaction();
 			s.persist(game);
-			tx.commit();
+			//tx.commit();
 			added = true;
 			System.out.println(s.getStatistics());
 		}
 		return added;
 	}
 
+	@Transactional
+	@Override
 	public boolean addScore(Score score) {
 		boolean added = false;
-		try (Session s = sf.openSession()) {
-			Transaction tx = s.beginTransaction();
+		try (Session s = sf.getCurrentSession()) {
+			//Transaction tx = s.beginTransaction();
 			s.save(score);
-			tx.commit();
+			//tx.commit();
 			added = true;
 			System.out.println(s.getStatistics());
 		}
 		return added;
 	}
 
+	@Transactional
+	@Override
 	public boolean addWin(Win win) {
 		boolean added = false;
-		try (Session s = sf.openSession()) {
-			Transaction tx = s.beginTransaction();
+		try (Session s = sf.getCurrentSession()) {
+			//Transaction tx = s.beginTransaction();
 			s.save(win);
-			tx.commit();
+			//tx.commit();
 			added = true;
 			System.out.println(s.getStatistics());
 		}
 		return added;
 	}
 
+	@Transactional
 	@Override
 	public boolean updateWin(Win win) {
 		boolean updated = false;
-		try (Session s = sf.openSession()) {
+		try (Session s = sf.getCurrentSession()) {
 			//Query to get original WIN, for the WIN_ID
 			//"Table name" is actually the class name
 	        Query query = s.createQuery("FROM Win WHERE USER_ID = :var1 AND GAME_ID = :var2");
@@ -90,10 +97,10 @@ public class P2DAOImpl implements P2DAO {
 	        }
 	        Win original = (Win) resultList.get(0);
 	        //Modify original WIN
-	        Transaction tx = s.beginTransaction();
+	        //Transaction tx = s.beginTransaction();
 	        original.setCount(win.getCount());
 			s.update(original);
-			tx.commit();
+			//tx.commit();
 			updated = true;
 			System.out.println(s.getStatistics());
 		}

@@ -2,10 +2,10 @@ package com.revature.dao;
 
 import java.util.List;
 
-import com.revature.beans.Game;
-import com.revature.beans.Score;
-import com.revature.beans.User;
-import com.revature.beans.Win;
+import com.revature.model.Game;
+import com.revature.model.Score;
+import com.revature.model.User;
+import com.revature.model.Win;
 
 public interface P2DAO {
 	public boolean addUser(User user);

@@ -5,11 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.Game;
-import com.revature.beans.Score;
-import com.revature.beans.User;
-import com.revature.beans.Win;
 import com.revature.dao.P2DAO;
+import com.revature.model.Game;
+import com.revature.model.Score;
+import com.revature.model.User;
+import com.revature.model.Win;
 
 @Service
 public class P2Services {
@@ -24,6 +24,7 @@ public class P2Services {
 	public boolean addUser(User user) {
 		return dao.addUser(user);
 	}
+
 	public boolean addGame(Game game) {
 		return dao.addGame(game);
 	}
