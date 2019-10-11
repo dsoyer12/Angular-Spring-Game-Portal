@@ -47,5 +47,18 @@ public class WinController {
 		return resp;
 	}
 	
+	@ResponseBody
+	@RequestMapping(method=RequestMethod.PUT)
+	public ResponseEntity<String> updateWin(@RequestBody Win win) {
+		ResponseEntity<String> resp = null;
+			try {
+				this.p2s.updateWin(win);
+				resp = new ResponseEntity<>("WIN UPDATED SUCCESSFULLY", HttpStatus.OK);
+			} catch(Exception e) {
+				e.printStackTrace();
+				resp = new ResponseEntity<>("FAILED TO UPDATE WIN", HttpStatus.BAD_REQUEST);
+			}
+		return resp;
+	}
 
 }

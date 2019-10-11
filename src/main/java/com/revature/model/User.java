@@ -33,9 +33,9 @@ public class User {
 	@SequenceGenerator(allocationSize=1, name="userSequence", sequenceName="SQ_USER_PK")
 	@Column(name="USER_ID")
 	private int user_id;
-	@Column(name="USERNAME")
+	@Column(name="USERNAME", unique = true)
 	private String username;
-	@Column(name="PASSWORD")
+	@Column(name="PASSWORD", unique = true)
 	private String password	;
 	//BEHAVIOR
 	public int getUser_id() {
