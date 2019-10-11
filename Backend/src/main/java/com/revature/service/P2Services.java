@@ -20,11 +20,10 @@ public class P2Services {
 	public P2Services (P2DAO dao) {
 		this.dao = dao;
 	}
-	
+	//CREATE
 	public void addUser(User user) {
 		 dao.addUser(user);
 	}
-
 	public void addGame(Game game) {
 		 dao.addGame(game);
 	}
@@ -34,33 +33,32 @@ public class P2Services {
 	public void addWin(Win win) {
 		 dao.addWin(win);
 	}
-	public void updateWin(Win win) {
-		 dao.updateWin(win);
-	}
-	public User Authenticate (User user) {
-		 return dao.Authenticate(user);
-	}
-
+	//GET ALL
 	public List<User> getAllUsers() {
 		 return dao.getAllUsers();
 	}
-
 	public List<Game> getAllGames() {
 		return dao.getAllGames();
 	}
-	
 	public List<Score> getAllScores() {
 		 return dao.getAllScores();
 	}
-
 	public List<Win> getAllWins() {
 		return dao.getAllWins();
 	}
-
+	//USER FUNCTIONS
+	public User Authenticate (User user) {
+		 return dao.Authenticate(user);
+	}
+	//GAME FUNCTIONS
+	//SCORE FUNCTIONS
 	public List<Win> top10Wins(Game game) {
 		return dao.top10Wins(game);
 	}
-	
+	//WIN FUNCTIONS
+	public void updateWin(Win win) {
+		 dao.updateWin(win);
+	}
 	public List<Score> top10Scores(Game game) {
 		return dao.top10Scores(game);
 	}
