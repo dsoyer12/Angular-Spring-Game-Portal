@@ -56,4 +56,12 @@ public class P2Services {
 	public List<Win> getAllWins() {
 		return dao.getAllWins();
 	}
+
+	public List<Win> top10Wins(Game game) {
+		return dao.top10Wins(game);
+	}
+	
+	public List<Score> top10Scores(Game game) {
+		return dao.top10Scores(game);
+	}
 }

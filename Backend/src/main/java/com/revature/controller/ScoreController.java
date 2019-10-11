@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.revature.model.Game;
 import com.revature.model.Score;
+import com.revature.model.Win;
 import com.revature.service.P2Services;
 
 @Controller
@@ -31,6 +33,12 @@ public class ScoreController {
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<Score>> getAll() {
 		return new ResponseEntity<>(this.p2s.getAllScores(), HttpStatus.OK);
+	}
+	
+	@ResponseBody 
+	@RequestMapping(value = "/top10", method = RequestMethod.GET)
+	public ResponseEntity<List<Score>> getTop10(@RequestBody Game game) {
+		return new ResponseEntity<>(this.p2s.top10Scores(game), HttpStatus.OK);
 	}
 
 	@ResponseBody
