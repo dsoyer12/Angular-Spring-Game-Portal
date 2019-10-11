@@ -55,28 +55,25 @@ public class P2DAOImpl implements P2DAO {
 	@Transactional
 	@Override
 	public void updateWin(Win win) {
-		try (Session s = sf.getCurrentSession()) {
-			//Query to get original WIN, for the WIN_ID
-			//"Table name" is actually the class name
-	        Query query = s.createQuery("FROM Win WHERE USER_ID = :var1 AND GAME_ID = :var2");
-	        query.setParameter("var1", win.getUser());
-	        query.setParameter("var2", win.getGame());
-	        List resultList = query.list();
-	        if (resultList.size() == 0) {
-	        	addWin(win);
-	        }
-	        Win original = (Win) resultList.get(0);
-	        //Modify original WIN
-	        //Transaction tx = s.beginTransaction();
-	        original.setCount(win.getCount());
-			s.update(original);
-			//tx.commit();
-			System.out.println(s.getStatistics());
-		}
+		Session s = sf.getCurrentSession();
+		//Query to get original WIN, for the WIN_ID
+		//"Table name" is actually the class name
+        Query query = s.createQuery("FROM Win WHERE USER_ID = :var1 AND GAME_ID = :var2");
+        query.setParameter("var1", win.getUser());
+        query.setParameter("var2", win.getGame());
+        List resultList = query.list();
+        if (resultList.size() == 0) {
+        	addWin(win);
+        }
+        Win original = (Win) resultList.get(0);
+        //Modify original WIN
+        original.setCount(win.getCount());
+		s.update(original);
+		System.out.println(s.getStatistics());
 	}
 
 	@Override
-	public User getUserByUsernamePassword(User user) {
+	public User Authenticate(User user) {
 		User target = null;
 		try (Session s = sf.openSession()) {
 			//Query to get full USER
@@ -131,6 +128,30 @@ public class P2DAOImpl implements P2DAO {
 		List<Win> results = null;
 		try (Session s = sf.openSession()) {
 			results = s.createQuery("FROM Win").getResultList();
+	        s.close();
+		}
+		return results;
+	}
+
+	@Override
+	public List<Score> top10Scores(Game game) {
+		List<Score> results = null;
+		try (Session s = sf.openSession()) {
+			Query query = s.createQuery("FROM Score WHERE GAME_ID = :var1 ORDER BY SCORES");
+	        query.setParameter("var1", game.getId());
+			results = query.getResultList();
+	        s.close();
+		}
+		return results;
+	}
+
+	@Override
+	public List<Win> top10Wins(Game game) {
+		List<Win> results = null;
+		try (Session s = sf.openSession()) {
+			Query query = s.createQuery("FROM Win WHERE GAME_ID = :var1 ORDER BY COUNT");
+	        query.setParameter("var1", game.getId());
+			results = query.getResultList();
 	        s.close();
 		}
 		return results;

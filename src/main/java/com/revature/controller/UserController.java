@@ -33,6 +33,12 @@ public class UserController {
 		return new ResponseEntity<>(this.p2s.getAllUsers(), HttpStatus.OK);
 	}
 	
+	@ResponseBody // tells Spring to skip ViewResolver
+	@RequestMapping(value = "/	", method = RequestMethod.GET)
+	public ResponseEntity<User> Authenticate(@RequestBody User user) {
+		return new ResponseEntity<>(this.p2s.Authenticate(user), HttpStatus.OK);
+	}
+	
 	// @RequestBody indicates that request body should be formatted so that it is 
 	// convertible to a Java object of specified type (uses Jackson if following default
 	// pattern and expecting JSON data from request)

@@ -37,8 +37,8 @@ public class P2Services {
 	public void updateWin(Win win) {
 		 dao.updateWin(win);
 	}
-	public User getUserByUsernamePassword (User user) {
-		 return dao.getUserByUsernamePassword(user);
+	public User Authenticate (User user) {
+		 return dao.Authenticate(user);
 	}
 
 	public List<User> getAllUsers() {
