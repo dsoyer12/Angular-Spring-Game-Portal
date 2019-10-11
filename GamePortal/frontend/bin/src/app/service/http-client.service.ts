@@ -38,16 +38,9 @@ export class HttpClientService {
     return this.httpClient.get<User[]>('http://localhost:8080/User');
   }
 
-  setScore(){
-
-    
-  }
-
   getScores()
   {
     console.log("test call");
     return this.httpClient.get<Score[]>('http://localhost:8080/Scores');
   }
-
-
 }
