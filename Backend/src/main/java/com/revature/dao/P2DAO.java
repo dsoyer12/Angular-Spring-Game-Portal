@@ -18,6 +18,8 @@ public interface P2DAO {
 	public List<Game> getAllGames();
 	public List<Score> getAllScores();
 	public List<Win> getAllWins();
+	//DELETE
+	//games and users
 	//USER FUNCTIONS
 	public User Authenticate (User user);
 	//GAME FUNCTIONS
