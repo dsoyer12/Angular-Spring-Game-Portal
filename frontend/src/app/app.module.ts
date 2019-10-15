@@ -14,6 +14,7 @@ import { ScoreComponent } from './score/score.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,10 @@ import { NavbarComponent } from './navbar/navbar.component';
     ScoreComponent,
 
 
-    NavbarComponent
+    NavbarComponent,
+
+
+    LoginComponent
   ],
   imports: [
     BrowserModule,

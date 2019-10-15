@@ -10,6 +10,7 @@ import com.revature.model.Win;
 public interface P2DAO {
 	//CREATE
 	public void addUser(User user);
+	public void deleteUser(User user);
 	public void addGame(Game game);
 	public void addScore(Score score);
 	public void addWin(Win win);
