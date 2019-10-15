@@ -20,7 +20,7 @@ public interface P2DAO {
 	public List<Win> getAllWins();
 	//USER FUNCTIONS
 	public User Authenticate (User user);
-	//WIN FUNCTIONS
+	//GAME FUNCTIONS
 	//SCORE FUNCTIONS
 	public List<Score> top10Scores(Game game);
 	//WIN FUNCTIONS

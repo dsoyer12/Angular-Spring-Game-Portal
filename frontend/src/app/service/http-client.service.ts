@@ -35,7 +35,8 @@ export class HttpClientService {
      getUsers()
   {
     console.log("test call");
-    return this.httpClient.get<User[]>('http://localhost:8080/User');
+    console.log(this.httpClient.get<User[]>('http://localhost:8088/P2/user/all'));
+    return this.httpClient.get<User[]>('http://localhost:8088/P2/user/all');
   }
 
   getScores()
