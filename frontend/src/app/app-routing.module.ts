@@ -6,7 +6,7 @@ import { FloppybirdComponent } from './floppybird/floppybird.component';
 import { LoginComponent } from './login/login.component';
 
 
-const routes: Routes = [ { path:'', component: UserComponent}, { path:'floppy', component: FloppybirdComponent},{ path:'pang', component: Game2Component},{ path:'login', component: LoginComponent}];
+const routes: Routes = [ { path:'user', component: UserComponent}, { path:'floppy', component: FloppybirdComponent},{ path:'pang', component: Game2Component},{ path:'login', component: LoginComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
