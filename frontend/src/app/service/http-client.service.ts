@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class User{
   constructor(
-    public USER_ID:number,
-    public USERNAME:string,
-    public PASSWORD:string,
+    public user_id:number,
+    public username:string,
+    public password:string,
 
   ) {}
 }
@@ -36,7 +36,7 @@ export class HttpClientService {
   {
     console.log("test call");
     console.log(this.httpClient.get<User[]>('http://localhost:8082/P2/user/all'));
-    return this.httpClient.get<User[]>('http://localhost:8088/P2/user/all');
+    return this.httpClient.get<User[]>('http://localhost:8082/P2/user/all');
   }
 
   getScores()
