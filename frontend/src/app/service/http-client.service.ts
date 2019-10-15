@@ -12,10 +12,10 @@ export class User{
 
 export class Score{
   constructor(
-    public Score_ID:number,
-    public Scores:number,
-    public Game_ID:number,
-    public User_ID:number,
+    public id:number,
+    public scores:number,
+    public user:[],
+    public game:[],
 
 
   ) {}
@@ -35,12 +35,13 @@ export class HttpClientService {
      getUsers()
   {
     console.log("test call");
-    return this.httpClient.get<User[]>('http://localhost:8080/User');
+    console.log(this.httpClient.get<User[]>('http://localhost:8082/P2/user/all'));
+    return this.httpClient.get<User[]>('http://localhost:8088/P2/user/all');
   }
 
   getScores()
   {
     console.log("test call");
-    return this.httpClient.get<Score[]>('http://localhost:8080/Scores');
+    return this.httpClient.get<Score[]>('http://localhost:8082/P2/score/all');
   }
 }

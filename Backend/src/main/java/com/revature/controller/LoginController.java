@@ -1,7 +1,5 @@
 package com.revature.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,8 +17,8 @@ import com.revature.service.P2Services;
 @Controller
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping(value = "/user")
-public class UserController {
+@RequestMapping(value = "/login")
+public class LoginController {
 
 	private P2Services p2s;
 
@@ -28,35 +26,11 @@ public class UserController {
 	public void setP2Services(P2Services p2s) {
 		this.p2s = p2s;
 	}
-
-	@ResponseBody // tells Spring to skip ViewResolver
-	@RequestMapping(value = "/all", method = RequestMethod.GET)
-	public ResponseEntity<List<User>> getAll() {
-		return new ResponseEntity<>(this.p2s.getAllUsers(), HttpStatus.OK);
-	}
 	
 	@ResponseBody // tells Spring to skip ViewResolver
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<User> Authenticate(@RequestBody User user) {
 		return new ResponseEntity<>(this.p2s.Authenticate(user), HttpStatus.OK);
 	}
-	
-	// @RequestBody indicates that request body should be formatted so that it is 
-	// convertible to a Java object of specified type (uses Jackson if following default
-	// pattern and expecting JSON data from request)
-	@ResponseBody
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<String> addUser(@RequestBody User user) {
-		ResponseEntity<String> resp = null;
-			try {
-				this.p2s.addUser(user);
-				resp = new ResponseEntity<>("USER CREATED SUCCESSFULLY", HttpStatus.OK);
-			} catch(Exception e) {
-				e.printStackTrace();
-				resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
-			}
-		return resp;
-	}
-	
 
 }
