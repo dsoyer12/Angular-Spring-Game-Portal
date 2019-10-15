@@ -93,6 +93,7 @@ local.properties
 # Eclipse Core
 .project
 
+.vscode
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 
