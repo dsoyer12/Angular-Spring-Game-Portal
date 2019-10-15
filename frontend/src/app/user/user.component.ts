@@ -8,22 +8,21 @@ import { HttpClientService } from '../service/http-client.service';
 })
 export class UserComponent implements OnInit {
 
-  Users:any [];
+  Users: any[];
 
   constructor(
-    private httpClientService:HttpClientService
+    private httpClientService: HttpClientService
   ) { }
 
   ngOnInit() {
     this.httpClientService.getUsers().subscribe(
-     response =>this.handleSuccessfulResponse(response),
+      response => this.handleSuccessfulResponse(response),
     );
   }
 
-handleSuccessfulResponse(response)
-{
-    this.Users=response;
-}
+  handleSuccessfulResponse(response) {
+    this.Users = response;
+  }
 
 }
 
