@@ -11,10 +11,10 @@
 
     <tbody>
         <tr class="bg-warning" *ngFor="let Score of Scores">
-            <td>{{Score.Score_ID}}</td>
-            <td>{{Score.Scores}}</td>
-            <td>{{Score.Game_ID}}</td>
-            <td>{{Score.User_ID}}</td>
+            <td>{{Score.id}}</td>
+            <td>{{Score.scores}}</td>
+            <td>{{Score.game.description}}</td>
+            <td>{{Score.user.username}}</td>
 
 
         </tr>
