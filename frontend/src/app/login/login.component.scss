@@ -7,7 +7,11 @@
 }
 
 
-
+.logo{
+	width:160px;
+	height:120px;
+	background-size: 0%;
+}
 .display {
 	background-color: #89abc6;
 	text-align: center;
@@ -20,6 +24,14 @@
     align-content: center;
 	text-align: center;
 	
+    padding: 1rem;
+	margin: 1rem;
+}
+
+.form-control{
+	width: 200%;  
+	align-content: center;
+    text-align: center;
     padding: 1rem;
 	margin: 1rem;
 }
