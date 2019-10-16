@@ -7,10 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,20 +31,18 @@ public class ScoreController {
 		this.p2s = p2s;
 	}
 
-	@ResponseBody // tells Spring to skip ViewResolver
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<Score>> getAll() {
 		return new ResponseEntity<>(this.p2s.getAllScores(), HttpStatus.OK);
 	}
 	
-	@ResponseBody 
 	@RequestMapping(value = "/top10", method = RequestMethod.GET)
-	public ResponseEntity<List<Score>> getTop10(@RequestBody Game game) {
-		return new ResponseEntity<>(this.p2s.top10Scores(game), HttpStatus.OK);
+	public ResponseEntity<List<Score>> getTop10(@RequestParam int id) {
+		return new ResponseEntity<>(this.p2s.top10Scores(new Game(id, "")), HttpStatus.OK);
 	}
 
-	
-	@RequestMapping(value = "/add",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/add",method=RequestMethod.POST)
 	public ResponseEntity<String> addScore(@RequestParam int user_id, @RequestParam int score,@RequestParam int game_id) {
 		ResponseEntity<String> resp = null;
 			try {
@@ -75,6 +72,7 @@ public class ScoreController {
 				
 				
 				}} catch(Exception e) {
+
 				e.printStackTrace();
 				resp = new ResponseEntity<>("FAILED TO CREATE SCORE", HttpStatus.BAD_REQUEST);
 			}
