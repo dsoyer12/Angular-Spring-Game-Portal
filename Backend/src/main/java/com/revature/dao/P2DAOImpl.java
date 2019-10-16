@@ -89,17 +89,17 @@ public class P2DAOImpl implements P2DAO {
 	}
 	//USER FUNCTIONS
 	@Override
-	public User Authenticate(User user) {
+	public User Authenticate(int id,String username, String password) {
 		User target = null;
 		try (Session s = sf.openSession()) {
 			//Query to get full USER
 			//"Table name" is actually the class name
 	        Query query = s.createQuery("FROM User WHERE USERNAME = :var1 AND PASSWORD = :var2");
-	        query.setParameter("var1", user.getUsername());
-	        query.setParameter("var2", user.getPassword());
+	        query.setParameter("var1", username);
+	        query.setParameter("var2", password);
 	        List resultList = query.list();
 	        if (resultList.size() == 0) {
-	        	return user;
+	        	return new User(id,username,password);
 	        }
 	        target = (User) resultList.get(0);	       
 			System.out.println(s.getStatistics());
@@ -155,6 +155,11 @@ public class P2DAOImpl implements P2DAO {
 			results.remove(results.size()-1);
 		}
 		return results;
+	}
+	@Override
+	public User Authenticate(User user) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
