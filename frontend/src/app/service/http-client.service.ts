@@ -1,25 +1,34 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class User{
   constructor(
-    public USER_ID:number,
-    public USERNAME:string,
-    public PASSWORD:string,
+    public user_id:number,
+    public username:string,
+    public password:string,
+
+  ) {}
+}
+export class CurrentUser{
+  constructor(
+    public user_id:number,
+    public username:string,
+    public password:string,
 
   ) {}
 }
 
 export class Score{
   constructor(
-    public Score_ID:number,
-    public Scores:number,
-    public Game_ID:number,
-    public User_ID:number,
+    public id:number,
+    public scores:number,
+    public user:[],
+    public game:[],
 
 
   ) {}
 }
+
 
 
 @Injectable({
@@ -35,13 +44,44 @@ export class HttpClientService {
      getUsers()
   {
     console.log("test call");
-    console.log(this.httpClient.get<User[]>('http://localhost:8088/P2/user/all'));
-    return this.httpClient.get<User[]>('http://localhost:8088/P2/user/all');
+    console.log(this.httpClient.get<User[]>('http://localhost:8082/P2/user/all'));
+    return this.httpClient.get<User[]>('http://localhost:8082/P2/user/all');
   }
+
+  getLogin(username, password){
+    let params =new HttpParams();
+    params = params.append('user_id','-1');
+    console.log(username);
+    params = params.append('username',username);
+    params = params.append('password',password);
+
+    return this.httpClient.get('http://localhost:8082/P2/user/login',{params:params});
+
+  }
+  getSignup(username, password){
+    let params =new HttpParams();
+    params = params.append('user_id','-1');
+    console.log(username);
+    params = params.append('username',username);
+    params = params.append('password',password);
+    
+    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params});}
+
+  setScores(user_id,points,game_id){
+    let params2 =new HttpParams();
+    console.log(user_id);
+    params2 = params2.append('user_id',user_id);
+    console.log(points);
+    params2 = params2.append('score',points);
+    console.log(game_id);
+    params2 = params2.append('game_id',game_id);
+
+    return this.httpClient.get('http://localhost:8082/P2/score/add',{params:params2});}
+
 
   getScores()
   {
     console.log("test call");
-    return this.httpClient.get<Score[]>('http://localhost:8080/Scores');
+    return this.httpClient.get<Score[]>('http://localhost:8082/P2/score/all');
   }
 }

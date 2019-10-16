@@ -1,10 +1,9 @@
-<div id="mygame" *ngIf="showing"></div>
 <div style="margin-top: 1%">
-    <div class="toggle-panel card" *ngIf="show">
+    <div class="toggle-panel card">
 
 
 
-        <div class="card-body">
+        <div id="pang" class="card-body" onload="StartGame()">
 
 
 
@@ -12,4 +11,3 @@
 
         </div>
     </div>
-    <button (click)="toggleDiv()" class="btn btn-danger" style="border: solid; border-color: white">Play Pong</button></div>

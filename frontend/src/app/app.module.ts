@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,7 +15,10 @@ import { ScoreComponent } from './score/score.component';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
+
+import { LoginComponent } from './login/login.component';
 import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
+
 
 @NgModule({
   declarations: [
@@ -32,13 +36,21 @@ import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
 
     NavbarComponent,
 
+
+    NavbarComponent,
+
+
+    LoginComponent,
+
     TetrisBoardComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    FormsModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

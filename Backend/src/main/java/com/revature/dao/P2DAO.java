@@ -10,6 +10,7 @@ import com.revature.model.Win;
 public interface P2DAO {
 	//CREATE
 	public void addUser(User user);
+
 	public void addGame(Game game);
 	public void addScore(Score score);
 	public void addWin(Win win);
@@ -18,6 +19,8 @@ public interface P2DAO {
 	public List<Game> getAllGames();
 	public List<Score> getAllScores();
 	public List<Win> getAllWins();
+	//DELETE
+	//games and users
 	//USER FUNCTIONS
 	public User Authenticate (User user);
 	//GAME FUNCTIONS
@@ -26,4 +29,6 @@ public interface P2DAO {
 	//WIN FUNCTIONS
 	public void updateWin(Win win);
 	public List<Win> top10Wins(Game game);
+
+	User Authenticate(int id, String username, String password);
 }
