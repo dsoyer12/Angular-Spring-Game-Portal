@@ -58,7 +58,7 @@ export class HttpClientService {
     return this.httpClient.get('http://localhost:8082/P2/user/login',{params:params});
 
   }
-  getSingup(username, password){
+  getSignup(username, password){
     let params =new HttpParams();
     params = params.append('user_id','-1');
     console.log(username);
