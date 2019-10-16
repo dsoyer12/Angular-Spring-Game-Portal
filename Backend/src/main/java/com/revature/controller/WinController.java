@@ -43,25 +43,25 @@ public class WinController {
 	public ResponseEntity<List<Win>> getTop10(@RequestParam int id) {
 		return new ResponseEntity<>(this.p2s.top10Wins(new Game(id, "")), HttpStatus.OK);
 	}
-	//Possibly remove and just use delete
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<String> addWin(@RequestParam int count, @RequestParam int user_id, @RequestParam int id) {
-		ResponseEntity<String> resp = null;
-			try {
-				this.p2s.addWin(new Win(count, new User(user_id, "", ""), new Game(id, "")));
-				resp = new ResponseEntity<>("WIN CREATED SUCCESSFULLY", HttpStatus.OK);
-			} catch(Exception e) {
-				e.printStackTrace();
-				resp = new ResponseEntity<>("FAILED TO CREATE WIN", HttpStatus.BAD_REQUEST);
-			}
-		return resp;
-	}
+	//REMOVED, JUST USE UPDATE
+//	@RequestMapping(method=RequestMethod.POST)
+//	public ResponseEntity<String> addWin(@RequestParam int count, @RequestParam int user_id, @RequestParam int id) {
+//		ResponseEntity<String> resp = null;
+//			try {
+//				this.p2s.addWin(new Win(count, new User(user_id, "", ""), new Game(id, "")));
+//				resp = new ResponseEntity<>("WIN CREATED SUCCESSFULLY", HttpStatus.OK);
+//			} catch(Exception e) {
+//				e.printStackTrace();
+//				resp = new ResponseEntity<>("FAILED TO UPDATE, OR CREATED A NEW WIN", HttpStatus.BAD_REQUEST);
+//			}
+//		return resp;
+//	}
 	
 	@RequestMapping(method=RequestMethod.PUT)
-	public ResponseEntity<String> updateWin(@RequestParam int count, @RequestParam int user_id, @RequestParam int id) {
+	public ResponseEntity<String> updateWin(@RequestParam int user_id, @RequestParam int id) {
 		ResponseEntity<String> resp = null;
 			try {
-				this.p2s.updateWin(new Win(count, new User(user_id, "", ""), new Game(id, "")));
+				this.p2s.updateWin(new Win(0, new User(user_id, "", ""), new Game(id, "")));
 				resp = new ResponseEntity<>("WIN UPDATED SUCCESSFULLY", HttpStatus.OK);
 			} catch(Exception e) {
 				e.printStackTrace();
