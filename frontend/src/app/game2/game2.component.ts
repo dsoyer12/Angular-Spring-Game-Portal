@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// System.import('game2.js'); //or below one
-import  'src/game2.js';
-declare var startGame:any;
+import { game2 } from 'src/game2';
+
+
+
 
 @Component({
   selector: 'app-game2',
@@ -15,24 +16,17 @@ export class Game2Component implements OnInit {
 
   ngOnInit() {
 
-
+   game2.StartGame();
 
 
 
   }
-  show = false;
-  showing = true;
+
 genGame(){
 
 
 }
-  toggleDiv(){
 
-   this.show = !this.show;
-
-startGame();
-
-  }
 
 
 }
