@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.revature.model.Game;
 import com.revature.model.Score;
+import com.revature.model.User;
 import com.revature.service.P2Services;
 
 @Controller
@@ -42,14 +44,37 @@ public class ScoreController {
 		return new ResponseEntity<>(this.p2s.top10Scores(game), HttpStatus.OK);
 	}
 
-	@ResponseBody
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<String> addScore(@RequestBody Score score) {
+	
+	@RequestMapping(value = "/add",method=RequestMethod.GET)
+	public ResponseEntity<String> addScore(@RequestParam int user_id, @RequestParam int score,@RequestParam int game_id) {
 		ResponseEntity<String> resp = null;
 			try {
-				this.p2s.addScore(score);
-				resp = new ResponseEntity<>("SCORE CREATED SUCCESSFULLY", HttpStatus.OK);
-			} catch(Exception e) {
+				User curruser = null;
+				List <User>users = this.p2s.getAllUsers();
+				for(User user: users) {
+					if (user.getUser_id() == user_id) {
+						curruser = user;
+						System.out.println(curruser);
+						
+					}
+					Game currgame = null;
+					List <Game>games = this.p2s.getAllGames();
+					Score newscore = null;
+					for(Game game: games) {
+						if (game.getId() == game_id) {
+							currgame = game;
+							System.out.println(currgame);
+							
+						}
+						newscore = new Score(score,curruser,currgame);
+						System.out.println(newscore);
+					
+				}
+					if (newscore != null) {this.p2s.addScore(newscore);
+					resp = new ResponseEntity<>("SCORE CREATED SUCCESSFULLY", HttpStatus.OK);}
+				
+				
+				}} catch(Exception e) {
 				e.printStackTrace();
 				resp = new ResponseEntity<>("FAILED TO CREATE SCORE", HttpStatus.BAD_REQUEST);
 			}

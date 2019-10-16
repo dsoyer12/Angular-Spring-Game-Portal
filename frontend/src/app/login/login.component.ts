@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CurrentUser} from '../service/http-client.service';
 import {User} from '../service/http-client.service';
+import { Router } from '@angular/router';
 
 import { HttpClientService } from '../service/http-client.service';
 
@@ -12,7 +13,7 @@ import { HttpClientService } from '../service/http-client.service';
 export class LoginComponent implements OnInit {
 
   constructor(
-    private httpClientService: HttpClientService
+    private httpClientService: HttpClientService, private router: Router
   ) { }
 
  username: any;
@@ -35,6 +36,10 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('User',JSON.stringify(response));
     var user = JSON.parse(localStorage.getItem('User'));
      console.log(user);
+     if(user.user_id!=0){
+
+      this.router.navigate(['']);
+     }
   }
   ngOnInit() {
   }

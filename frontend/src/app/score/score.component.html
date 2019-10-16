@@ -4,17 +4,19 @@
 <table class="table table-bordered" border="1">
     <thead></thead>
     <tr>
-        <th>Your Scores</th>
+        <th>Score_ID</th>
         <th>
-            Score_ID</th>
+            Score</th>
+        <th>
+            Game</th>
     </tr>
 
     <tbody>
-        <tr class="bg-warning" *ngFor="let Score of Scores">
+        <tr class="bg-warning" *ngFor="let Score of MyScores ">
             <td>{{Score.id}}</td>
             <td>{{Score.scores}}</td>
             <td>{{Score.game.description}}</td>
-            <td>{{Score.user.username}}</td>
+
 
 
         </tr>

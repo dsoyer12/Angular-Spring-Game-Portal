@@ -54,8 +54,20 @@ export class HttpClientService {
     console.log(username);
     params = params.append('username',username);
     params = params.append('password',password);
-    
+
     return this.httpClient.get('http://localhost:8082/P2/user/login',{params:params});
+
+  }
+  setScores(user_id,points,game_id){
+    let params2 =new HttpParams();
+    console.log(user_id);
+    params2 = params2.append('user_id',user_id);
+    console.log(points);
+    params2 = params2.append('score',points);
+    console.log(game_id);
+    params2 = params2.append('game_id',game_id);
+
+    return this.httpClient.get('http://localhost:8082/P2/score/add',{params:params2});
 
   }
   getScores()
