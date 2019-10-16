@@ -1,7 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 
 export class User{
+  constructor(
+    public user_id:number,
+    public username:string,
+    public password:string,
+
+  ) {}
+}
+export class CurrentUser{
   constructor(
     public user_id:number,
     public username:string,
@@ -22,6 +30,7 @@ export class Score{
 }
 
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +48,16 @@ export class HttpClientService {
     return this.httpClient.get<User[]>('http://localhost:8082/P2/user/all');
   }
 
+  getLogin(username, password){
+    let params =new HttpParams();
+    params = params.append('user_id','0');
+    console.log(username);
+    params = params.append('username',username);
+    params = params.append('password',password);
+    
+    return this.httpClient.get('http://localhost:8082/P2/user/login',{params:params});
+
+  }
   getScores()
   {
     console.log("test call");

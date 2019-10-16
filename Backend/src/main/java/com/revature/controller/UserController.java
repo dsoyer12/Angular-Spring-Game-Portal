@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,10 +37,10 @@ public class UserController {
 		return new ResponseEntity<>(this.p2s.getAllUsers(), HttpStatus.OK);
 	}
 	
-	@ResponseBody // tells Spring to skip ViewResolver
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ResponseEntity<User> Authenticate(@RequestBody User user) {
-		return new ResponseEntity<>(this.p2s.Authenticate(user), HttpStatus.OK);
+	 // tells Spring to skip ViewResolver
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ResponseEntity<User> Authenticate(@RequestParam int user_id, @RequestParam String username, @RequestParam String password) {
+		return new ResponseEntity<>(this.p2s.Authenticate(user_id, username, password), HttpStatus.OK);
 	}
 	
 	// @RequestBody indicates that request body should be formatted so that it is 

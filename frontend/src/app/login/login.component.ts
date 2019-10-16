@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-//import {User} from '../service/http-client.service';
+import {CurrentUser} from '../service/http-client.service';
+import {User} from '../service/http-client.service';
+
+import { HttpClientService } from '../service/http-client.service';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private httpClientService: HttpClientService
+  ) { }
+
+ username: any;
+ password: any;
 
 
-    username: string = "Hi";
-    password: string = "Bye";
-    id: 0;
-  
 
-  login(){
+  login(username,password){
     console.log(this.username);
     console.log(this.password);
+
+    this.httpClientService.getLogin(this.username,this.password).subscribe(
+      response => this.handleSuccessfulResponse(response),
+    );
+  }
+
+  handleSuccessfulResponse(response) {
+    //this.User = response;
+    console.log(response);
+    localStorage.setItem('User',JSON.stringify(response));
+    var user = JSON.parse(localStorage.getItem('User'));
+     console.log(user);
   }
   ngOnInit() {
   }
