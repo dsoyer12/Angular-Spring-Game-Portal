@@ -1,25 +1,40 @@
-.example-card {
-	width: 3px;
-    align-content: center;
-    text-align: center;
-    padding: 1rem;
-	margin: 1rem;
-}
-
-
-
-.display {
-	background-color: #89abc6;
-	text-align: center;
-	padding: 1rem;
-	margin: 1rem;
-}
-
-.box{
-	width: 50%;
-    align-content: center;
-	text-align: center;
-	
-    padding: 1rem;
-	margin: 1rem;
+mat-card {
+    float: right;
+    .example-card {
+        width: 3px;
+        align-content: center;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .logo {
+        width: 18%;
+        height: 18%;
+        background-size: 0%;
+        margin-right: 60%;
+    }
+    .display {
+        background-color: #89abc6;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .btnstyle {
+        width: 15% !important;
+        margin-left: 15%;
+    }
+    .box {
+        width: 50%;
+        align-content: center;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .form-control {
+        width: 200%;
+        align-content: center;
+        text-align: center;
+        padding: 1rem;
+        margin: 1rem;
+    }
 }

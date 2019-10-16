@@ -38,7 +38,7 @@ public class Win {
 	@SequenceGenerator(allocationSize=1, name="winSequence", sequenceName="SQ_WIN_PK")
 	@Column(name="WIN_ID")
 	private int id;
-	@Column(name="COUNT")
+	@Column(name="COUNT_")
 	private int count;
 	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.PERSIST)
 	@JoinColumn(name="USER_ID ")

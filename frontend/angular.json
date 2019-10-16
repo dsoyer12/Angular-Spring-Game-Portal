@@ -33,7 +33,7 @@
                         "scripts": ["../frontend/node_modules/p5/lib/p5.min.js",
                             "../frontend/node_modules/p5/lib/addons/p5.sound.js",
                             "../frontend/node_modules/p5/lib/addons/p5.dom.js",
-                            "src/game2.js",
+
                             "src/floppy.js",
                             "src/sketch.js"
                         ]
