@@ -206,9 +206,11 @@ export class TetrisBoardComponent implements OnInit {
   gameOver() {
     console.log(localStorage.getItem("User"));
     var user = JSON.parse(localStorage.getItem('User'));
-    console.log(user.user_id);
-    console.log(this.points);
-    this.httpClientService.setScores(user.user_id,this.points,'99');
+    console.log("user id: " + user.user_id);
+    console.log("scores: " + this.points);
+    this.httpClientService.setScores(this.points,user.user_id,99).subscribe(
+        response => this.handleSuccessfulResponse(response),
+    );
     cancelAnimationFrame(this.requestId);
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(1, 3, 8, 1.2);

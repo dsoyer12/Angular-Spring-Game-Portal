@@ -35,7 +35,7 @@ public class GameController {
 		return new ResponseEntity<>(this.p2s.getAllGames(), HttpStatus.OK);
 	}
 
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<String> addGame(@RequestParam String description){
 		ResponseEntity<String> resp = null;
 			try {

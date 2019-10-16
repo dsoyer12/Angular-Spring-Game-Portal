@@ -42,11 +42,14 @@ public class ScoreController {
 	}
 
 
-	@RequestMapping(value = "/add",method=RequestMethod.POST)
+	@RequestMapping(value = "/add",method=RequestMethod.GET)
 	public ResponseEntity<String> addScore(@RequestParam int scores, @RequestParam int user_id, @RequestParam int id) {
 		ResponseEntity<String> resp = null;
 			try {
-				this.p2s.addScore(new Score(scores, new User(user_id, "", ""), new Game(id, "")));
+				Score input = new Score(scores, new User(user_id, "", ""), new Game(id, ""));
+				System.out.println("Adding score");
+				System.out.println(input);
+				this.p2s.addScore(input);
 				resp = new ResponseEntity<>("SCORE CREATED SUCCESSFULLY", HttpStatus.OK);
 			} catch(Exception e) {
 				e.printStackTrace();

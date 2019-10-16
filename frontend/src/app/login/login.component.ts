@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
   handleSuccessfulResponse(response) {
     //this.User = response;
-    console.log(response);
+    //console.log(response);
     localStorage.setItem('User',JSON.stringify(response));
     var user = JSON.parse(localStorage.getItem('User'));
      console.log(user);
