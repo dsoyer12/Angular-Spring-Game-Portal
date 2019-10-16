@@ -35,24 +35,23 @@ public class UserController {
 	public ResponseEntity<List<User>> getAll() {
 		return new ResponseEntity<>(this.p2s.getAllUsers(), HttpStatus.OK);
 	}
-	
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ResponseEntity<User> Authenticate(@RequestParam int user_id, @RequestParam String username, @RequestParam String password) {
 		return new ResponseEntity<>(this.p2s.Authenticate(new User(user_id, username, password)), HttpStatus.OK);
 	}
-	
-	@RequestMapping(method=RequestMethod.POST)
+
+	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<String> addUser(@RequestParam String username, @RequestParam String password) {
 		ResponseEntity<String> resp = null;
-			try {
-				this.p2s.addUser(new User(username, password));
-				resp = new ResponseEntity<>("USER CREATED SUCCESSFULLY", HttpStatus.OK);
-			} catch(Exception e) {
-				e.printStackTrace();
-				resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
-			}
+		try {
+			this.p2s.addUser(new User(username, password));
+			resp = new ResponseEntity<>("USER CREATED SUCCESSFULLY", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			resp = new ResponseEntity<>("FAILED TO CREATE USER", HttpStatus.BAD_REQUEST);
+		}
 		return resp;
 	}
-	
 
 }

@@ -38,12 +38,12 @@ public class WinController {
 		return new ResponseEntity<>(this.p2s.getAllWins(), HttpStatus.OK);
 	}
 	
+	//Not working
 	@RequestMapping(value = "/top10", method = RequestMethod.GET)
 	public ResponseEntity<List<Win>> getTop10(@RequestParam int id) {
 		return new ResponseEntity<>(this.p2s.top10Wins(new Game(id, "")), HttpStatus.OK);
 	}
-
-	@ResponseBody
+	//Possibly remove and just use delete
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<String> addWin(@RequestParam int count, @RequestParam int user_id, @RequestParam int id) {
 		ResponseEntity<String> resp = null;
@@ -57,12 +57,11 @@ public class WinController {
 		return resp;
 	}
 	
-	@ResponseBody
 	@RequestMapping(method=RequestMethod.PUT)
-	public ResponseEntity<String> updateWin(@RequestBody Win win) {
+	public ResponseEntity<String> updateWin(@RequestParam int count, @RequestParam int user_id, @RequestParam int id) {
 		ResponseEntity<String> resp = null;
 			try {
-				this.p2s.updateWin(win);
+				this.p2s.updateWin(new Win(count, new User(user_id, "", ""), new Game(id, "")));
 				resp = new ResponseEntity<>("WIN UPDATED SUCCESSFULLY", HttpStatus.OK);
 			} catch(Exception e) {
 				e.printStackTrace();
