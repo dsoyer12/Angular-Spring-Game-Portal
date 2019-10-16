@@ -50,12 +50,22 @@ export class HttpClientService {
 
   getLogin(username, password){
     let params =new HttpParams();
-    params = params.append('user_id','0');
+    params = params.append('user_id','-1');
     console.log(username);
     params = params.append('username',username);
     params = params.append('password',password);
     
     return this.httpClient.get('http://localhost:8082/P2/user/login',{params:params});
+
+  }
+  getSingup(username, password){
+    let params =new HttpParams();
+    params = params.append('user_id','-1');
+    console.log(username);
+    params = params.append('username',username);
+    params = params.append('password',password);
+    
+    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params});
 
   }
   getScores()

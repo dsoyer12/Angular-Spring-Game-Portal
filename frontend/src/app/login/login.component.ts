@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
  password: any;
     
   
-
+  signup(username,password){
+    this.httpClientService.getSignup(this.username,this.password).subscribe(
+      response => this.handleSuccessfulResponse(response),
+    );
+  }
   login(username,password){
     console.log(this.username);
     console.log(this.password);
