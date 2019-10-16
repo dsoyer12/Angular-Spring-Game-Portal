@@ -69,6 +69,7 @@ export class HttpClientService {
 
   setScores(user_id,points,game_id){
     let params2 =new HttpParams();
+    console.log("Setting score");
     console.log(user_id);
     params2 = params2.append('user_id',user_id);
     console.log(points);
@@ -76,7 +77,7 @@ export class HttpClientService {
     console.log(game_id);
     params2 = params2.append('game_id',game_id);
 
-    return this.httpClient.get('http://localhost:8082/P2/score/add',{params:params2});}
+    return this.httpClient.post('http://localhost:8082/P2/score/add',{params:params2});}
 
 
   getScores()

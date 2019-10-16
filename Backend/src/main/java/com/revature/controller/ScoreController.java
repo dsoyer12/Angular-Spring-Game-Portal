@@ -43,36 +43,12 @@ public class ScoreController {
 
 
 	@RequestMapping(value = "/add",method=RequestMethod.POST)
-	public ResponseEntity<String> addScore(@RequestParam int user_id, @RequestParam int score,@RequestParam int game_id) {
+	public ResponseEntity<String> addScore(@RequestParam int scores, @RequestParam int user_id, @RequestParam int id) {
 		ResponseEntity<String> resp = null;
 			try {
-				User curruser = null;
-				List <User>users = this.p2s.getAllUsers();
-				for(User user: users) {
-					if (user.getUser_id() == user_id) {
-						curruser = user;
-						System.out.println(curruser);
-						
-					}
-					Game currgame = null;
-					List <Game>games = this.p2s.getAllGames();
-					Score newscore = null;
-					for(Game game: games) {
-						if (game.getId() == game_id) {
-							currgame = game;
-							System.out.println(currgame);
-							
-						}
-						newscore = new Score(score,curruser,currgame);
-						System.out.println(newscore);
-					
-				}
-					if (newscore != null) {this.p2s.addScore(newscore);
-					resp = new ResponseEntity<>("SCORE CREATED SUCCESSFULLY", HttpStatus.OK);}
-				
-				
-				}} catch(Exception e) {
-
+				this.p2s.addScore(new Score(scores, new User(user_id, "", ""), new Game(id, "")));
+				resp = new ResponseEntity<>("SCORE CREATED SUCCESSFULLY", HttpStatus.OK);
+			} catch(Exception e) {
 				e.printStackTrace();
 				resp = new ResponseEntity<>("FAILED TO CREATE SCORE", HttpStatus.BAD_REQUEST);
 			}
