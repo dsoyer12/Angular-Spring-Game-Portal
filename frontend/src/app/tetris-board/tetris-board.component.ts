@@ -5,6 +5,8 @@ import {
   OnInit,
   HostListener
 } from '@angular/core';
+import { HttpClientService } from '../service/http-client.service';
+
 import {
   COLS,
   BLOCK_SIZE,
@@ -71,7 +73,7 @@ export class TetrisBoardComponent implements OnInit {
     }
   }
 
-  constructor(private service: TetrisService) { }
+  constructor(private service: TetrisService, private httpClientService: HttpClientService) {  }
 
   ngOnInit() {
     this.initBoard();
@@ -202,6 +204,11 @@ export class TetrisBoardComponent implements OnInit {
   }
 
   gameOver() {
+    console.log(localStorage.getItem("User"));
+    var user = JSON.parse(localStorage.getItem('User'));
+    console.log(user.user_id);
+    console.log(this.points);
+    this.httpClientService.setScores(user.user_id,this.points,'99');
     cancelAnimationFrame(this.requestId);
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(1, 3, 8, 1.2);
@@ -209,7 +216,11 @@ export class TetrisBoardComponent implements OnInit {
     this.ctx.fillStyle = 'red';
     this.ctx.fillText('GAME OVER', 1.8, 4);
   }
+  handleSuccessfulResponse(response) {
 
+    console.log(response);
+
+  }
   getEmptyBoard(): number[][] {
     return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
   }
