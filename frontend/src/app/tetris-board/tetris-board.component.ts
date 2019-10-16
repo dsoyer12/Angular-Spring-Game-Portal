@@ -208,7 +208,7 @@ export class TetrisBoardComponent implements OnInit {
     var user = JSON.parse(localStorage.getItem('User'));
     console.log("user id: " + user.user_id);
     console.log("scores: " + this.points);
-    this.httpClientService.setScores(this.points,user.user_id,99).subscribe(
+    this.httpClientService.setScores(this.points,user.user_id,4).subscribe(
         response => this.handleSuccessfulResponse(response),
     );
     cancelAnimationFrame(this.requestId);
@@ -223,6 +223,7 @@ export class TetrisBoardComponent implements OnInit {
     console.log(response);
 
   }
+  
   getEmptyBoard(): number[][] {
     return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
   }

@@ -57,14 +57,14 @@ export class HttpClientService {
     return this.httpClient.get('http://localhost:8082/P2/user/login',{params:params});
 
   }
-  // getSignup(username, password){
-  //   let params =new HttpParams();
-  //   params = params.append('user_id','-1');
-  //   console.log(username);
-  //   params = params.append('username',username);
-  //   params = params.append('password',password);
+  getSignup(username, password){
+    let params =new HttpParams();
+    params = params.append('user_id','-1');
+    console.log(username);
+    params = params.append('username',username);
+    params = params.append('password',password);
     
-  //   return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params});}
+    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params});}
 
   setScores(points,user_id,game_id){
     let params2 =new HttpParams();
@@ -74,15 +74,24 @@ export class HttpClientService {
     params2 = params2.append('user_id',user_id);
     console.log(points);
     params2 = params2.append('id',game_id);
-​
     return this.httpClient.get('http://localhost:8082/P2/score/add',{params:params2});
+  }
+
+  incWin(user_id,game_id){
+    let params3 =new HttpParams();
+    console.log(user_id);
+    console.log(game_id);
+    params3 = params3.append('user_id',user_id);
+    params3 = params3.append('id',game_id);
+​
+    return this.httpClient.get('http://localhost:8082/P2/score/add',{params:params3});
 ​
   }
 
 
-  // getScores()
-  // {
-  //   console.log("test call");
-  //   return this.httpClient.get<Score[]>('http://localhost:8082/P2/score/all');
-  // }
+  getScores()
+  {
+    console.log("test call");
+    return this.httpClient.get<Score[]>('http://localhost:8082/P2/score/all');
+  }
 }
