@@ -4,7 +4,7 @@ export class game2{
     ){}
 
   static StartGame() {
-    var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(callback) {
+    var animate = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.requestAnimationFrame || function(callback) {
         window.setTimeout(callback, 1000 / 60) // method tells the browser that you wish to perform an animation and requests that the browser call
     }; //a specified function to update an animation before the next repaint.
     var canvas = document.createElement("canvas"); //create canvas
@@ -67,7 +67,7 @@ export class game2{
 
     Score.prototype.render = function() {
         context.fillStyle = "#000000";
-        context.fillText(this.width, this.height, this.x, this.y, this.text);
+        context.fillText(this.width, this.height, this.x, this.y);
     };
 
     // create paddle
@@ -155,7 +155,7 @@ export class game2{
 
     Ball.prototype.render = function() {
         context.beginPath();
-        context.arc(this.x, this.y, 5, 2 * Math.PI, false);
+        context.arc(this.x, this.y, 5, 2 * Math.PI,10*Math.PI);
         context.fillStyle = "#FF7B00";
         context.fill();
     };
