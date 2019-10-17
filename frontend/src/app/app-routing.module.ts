@@ -7,7 +7,7 @@ import { Game2Component } from './game2/game2.component';
 import { FloppybirdComponent } from './floppybird/floppybird.component';
 import { LoginComponent } from './login/login.component';
 import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
-import { BoardComponent } from './board.component';
+import { BoardComponent } from './app-tic-tac-board/app-tic-tac-board.component';
 
 
 
