@@ -60,7 +60,7 @@ public class P2DAOImpl implements P2DAO {
 		try (Session s = sf.openSession()) {
 			// Query to get all USERs
 			// "Table name" is actually the class name
-			results = s.createQuery("FROM User").getResultList();
+			results = s.createQuery("FROM User ORDER BY USER_ID").getResultList();
 			s.close();
 		}
 		return results;
@@ -70,7 +70,7 @@ public class P2DAOImpl implements P2DAO {
 	public List<Game> getAllGames() {
 		List<Game> results = null;
 		try (Session s = sf.openSession()) {
-			results = s.createQuery("FROM Game").getResultList();
+			results = s.createQuery("FROM Game ORDER BY GAME_ID").getResultList();
 			s.close();
 		}
 		return results;
@@ -80,7 +80,7 @@ public class P2DAOImpl implements P2DAO {
 	public List<Score> getAllScores() {
 		List<Score> results = null;
 		try (Session s = sf.openSession()) {
-			results = s.createQuery("FROM Score").getResultList();
+			results = s.createQuery("FROM Score ORDER BY SCORE_ID").getResultList();
 			s.close();
 		}
 		return results;
@@ -90,7 +90,7 @@ public class P2DAOImpl implements P2DAO {
 	public List<Win> getAllWins() {
 		List<Win> results = null;
 		try (Session s = sf.openSession()) {
-			results = s.createQuery("FROM Win").getResultList();
+			results = s.createQuery("FROM Win ORDER BY WIN_ID").getResultList();
 			s.close();
 		}
 		return results;
@@ -98,7 +98,7 @@ public class P2DAOImpl implements P2DAO {
 
 	// USER FUNCTIONS
 	@Override
-	public User Authenticate(int id,String username, String password) {
+	public User Authenticate(User user) {
 		User target = null;
 		try (Session s = sf.openSession()) {
 
@@ -170,13 +170,6 @@ public class P2DAOImpl implements P2DAO {
 			results.remove(results.size() - 1);
 		}
 		return results;
-	}
-
-	@Override
-	public User Authenticate(User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+	}	
 
 }

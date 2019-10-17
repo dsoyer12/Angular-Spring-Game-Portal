@@ -50,7 +50,12 @@ export class game2{
       }
       else  if (deathscore >= 5){var GameOver = new Score("GAME OVER", 60, 300, 250, 250);
     GameOver.render();}
-      else  if (score >= 5){var Win = new Score("YOU WIN", 60, 300, 250, 250); Win.render();}
+      else  if (score >= 5){var Win = new Score("YOU WIN", 60, 300, 250, 250); Win.render();
+      var user = JSON.parse(localStorage.getItem('User'));
+      this.httpClientService.setScores(user.user_id,1).subscribe(
+        response => this.handleSuccessfulResponse(response),
+    );//added inc function
+    }
               // myScore.update();
 
 

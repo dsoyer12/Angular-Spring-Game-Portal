@@ -57,7 +57,7 @@ public class WinController {
 //		return resp;
 //	}
 	
-	@RequestMapping(method=RequestMethod.PUT)
+	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<String> updateWin(@RequestParam int user_id, @RequestParam int id) {
 		ResponseEntity<String> resp = null;
 			try {

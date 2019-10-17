@@ -43,7 +43,7 @@ public class UserController {
 
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<String> addUser(@RequestParam String username, @RequestParam String password) {
 		ResponseEntity<String> resp = null;
 		try {
