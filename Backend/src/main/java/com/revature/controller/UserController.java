@@ -2,6 +2,7 @@ package com.revature.controller;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +32,11 @@ public class UserController {
 		this.p2s = p2s;
 	}
 
+	private static final Logger logger = Logger.getLogger(UserController.class);
+
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public ResponseEntity<List<User>> getAll() {
+		logger.info("Viewing all users");
 		return new ResponseEntity<>(this.p2s.getAllUsers(), HttpStatus.OK);
 	}
 
