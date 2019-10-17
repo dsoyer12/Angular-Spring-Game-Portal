@@ -1,15 +1,19 @@
-<div id="mygame2" *ngIf="showing2"></div>
-<div style="margin-top: 1%">
-    <div class="toggle-panel card" *ngIf="show2">
+<div></div>
+
+<div class="game">
+    <div class="toggle-panel card">
 
 
 
-        <div class="card-body">
+        <div class="card-body" id="game">
 
 
 
-            <p>Use the Arrow Keys to Move!.</p>
+
 
         </div>
+        <p>Use the Arrow Keys to Move!.</p>
+        <button (click)="SendScore()"> post score </button>
+
     </div>
-    <button (click)="this.toggleDiv2()" class="btn btn-danger" style="border: solid; border-color: white">Play FloppyBird</button></div>
+</div>

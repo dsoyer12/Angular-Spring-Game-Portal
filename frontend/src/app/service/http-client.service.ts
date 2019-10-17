@@ -58,13 +58,14 @@ export class HttpClientService {
 
   }
   getSignup(username, password){
-    let params =new HttpParams();
-    params = params.append('user_id','-1');
+    //signup function
+    let params3 =new HttpParams();
+    params3 = params3.append('user_id','-1');
     console.log(username);
-    params = params.append('username',username);
-    params = params.append('password',password);
-    
-    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params});}
+    params3 = params3.append('username',username);
+    params3 = params3.append('password',password);
+
+    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params3});}
 
   setScores(points,user_id,game_id){
     let params2 =new HttpParams();

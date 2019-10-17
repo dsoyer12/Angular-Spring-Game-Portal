@@ -18,8 +18,12 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { LoginComponent } from './login/login.component';
 import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
+
 import {CellComponent} from './cell.component';
 import { BoardComponent } from './app-tic-tac-board/app-tic-tac-board.component';
+
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
 
 @NgModule({
   declarations: [
@@ -44,12 +48,17 @@ import { BoardComponent } from './app-tic-tac-board/app-tic-tac-board.component'
     LoginComponent,
 
     TetrisBoardComponent,
+
     
     BoardComponent,
     
     CellComponent,
     
     BoardComponent,
+
+
+
+    LandingPageComponent
 
 
   ],

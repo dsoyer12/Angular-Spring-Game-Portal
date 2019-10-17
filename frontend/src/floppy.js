@@ -1,13 +1,20 @@
 var myGamePiece;
 var myObstacles = [];
 var myScore;
+var dead = 'false';
 
 function startGame2() {
     myGameArea.start();
     myGamePiece = new component(30, 30, "red", 10, 120);
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
 
+
+
 }
+
+
+
+
 
 // creating game canvas to hold entities
 var myGameArea = {
@@ -16,7 +23,7 @@ var myGameArea = {
         this.canvas.width = 720;
         this.canvas.height = 360;
         this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        document.getElementById("game").appendChild(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
         // event listeners for pressing key down and release up.
@@ -82,6 +89,8 @@ function updateGameArea() {
     for (let i = 0; i < myObstacles.length; i += 1) {
         if (myGamePiece.crashWith(myObstacles[i])) {
             myGameArea.stop();
+            localStorage.setItem('FlappyScore', myGameArea.frameNo);
+
             return;
         }
     }
