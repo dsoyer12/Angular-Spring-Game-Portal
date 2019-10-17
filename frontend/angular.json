@@ -30,7 +30,8 @@
                         "styles": [
                             "src/styles.scss"
                         ],
-                        "scripts": ["../frontend/node_modules/p5/lib/p5.min.js",
+                        "scripts": [
+                            "../frontend/node_modules/p5/lib/p5.min.js",
                             "../frontend/node_modules/p5/lib/addons/p5.sound.js",
                             "../frontend/node_modules/p5/lib/addons/p5.dom.js",
                             "src/game2.js",
@@ -40,10 +41,12 @@
                     },
                     "configurations": {
                         "production": {
-                            "fileReplacements": [{
-                                "replace": "src/environments/environment.ts",
-                                "with": "src/environments/environment.prod.ts"
-                            }],
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
                             "optimization": true,
                             "outputHashing": "all",
                             "sourceMap": false,
@@ -53,7 +56,8 @@
                             "extractLicenses": true,
                             "vendorChunk": false,
                             "buildOptimizer": true,
-                            "budgets": [{
+                            "budgets": [
+                                {
                                     "type": "initial",
                                     "maximumWarning": "2mb",
                                     "maximumError": "5mb"
@@ -96,9 +100,10 @@
                             "src/assets"
                         ],
                         "styles": [
-
                             "node_modules/angular-bootstrap-md/scss/mdb-free.scss",
-
+                            "../node_modules/bulma/css/bulma.css",
+                            "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css",
+                            "node_modules/ngx-toastr/toastr.css",
                             "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss",
                             "node_modules/@fortawesome/fontawesome-free/scss/solid.scss",
                             "node_modules/@fortawesome/fontawesome-free/scss/regular.scss",
@@ -108,7 +113,11 @@
                             "node_modules/animate.css/animate.css",
                             "src/styles.scss"
                         ],
-                        "scripts": ["src/app/game2/game2.js", "src/floppy.js", "node_modules/chart.js/dist/Chart.js",
+                        "scripts": [
+                            "src/app/game2/game2.js",
+                            "../node_modules/pusher-js/dist/web/pusher.min.js",
+                            "src/floppy.js",
+                            "node_modules/chart.js/dist/Chart.js",
                             "node_modules/hammerjs/hammer.min.js"
                         ]
                     }
@@ -122,7 +131,8 @@
                             "e2e/tsconfig.json"
                         ],
                         "exclude": [
-                            "**/node_modules/**", "e2e"
+                            "**/node_modules/**",
+                            "e2e"
                         ]
                     }
                 },

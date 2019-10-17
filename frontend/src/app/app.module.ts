@@ -18,7 +18,11 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { LoginComponent } from './login/login.component';
 import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
-
+import { BattleshipComponent } from './battleship/battleship.component';
+import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+//import { ToastrModule } from 'ng6-toastr-notifications';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
 
     LoginComponent,
 
-    TetrisBoardComponent
+    TetrisBoardComponent,
+
+    BattleshipComponent
 
   ],
   imports: [
@@ -50,7 +56,10 @@ import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
     AppRoutingModule,
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    ToastModule.forRoot(),
+    FormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot() 
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],
