@@ -18,6 +18,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 
 import { LoginComponent } from './login/login.component';
 import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+
 
 
 @NgModule({
@@ -42,7 +44,9 @@ import { TetrisBoardComponent } from './tetris-board/tetris-board.component';
 
     LoginComponent,
 
-    TetrisBoardComponent
+    TetrisBoardComponent,
+
+    LandingPageComponent
 
   ],
   imports: [
