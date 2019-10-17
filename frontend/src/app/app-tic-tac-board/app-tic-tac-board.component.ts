@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { HttpClientService } from '../service/http-client.service'
  
 
 
@@ -24,6 +24,8 @@ export class BoardComponent {
   private turn: string = 'X';
   private gameover = false;
   private winner = null;
+  constructor(private httpClientService: HttpClientService) {  }
+
 
   ngOnInit() {
     for (let i = 0; i < 9; i++) {
@@ -54,6 +56,7 @@ export class BoardComponent {
   }
 
   changeTurn() {
+
     if (this.turn === 'X') {
       this.turn = 'O';
     } else {
@@ -76,6 +79,17 @@ export class BoardComponent {
       if (this.cells[line[0]] === this.cells[line[1]] && this.cells[line[1]] === this.cells[line[2]] && this.cells[line[0]] !== null) {
         this.gameover = true;
         this.winner = this.cells[line[0]];
+        this.winner = this.cells[line[0]];
+        console.log("here "+this.winner);
+
+        if(this.winner==='X'){
+          var user = JSON.parse(localStorage.getItem('User'));
+          console.log("user id: " + user.user_id);
+
+          console.log("here2 "+user.userid);
+
+          this.httpClientService.incWin(user.userid,3);
+        }
         return;
       }
     }
