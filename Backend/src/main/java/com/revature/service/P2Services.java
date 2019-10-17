@@ -48,8 +48,8 @@ public class P2Services {
 		return dao.getAllWins();
 	}
 	//USER FUNCTIONS
-	public User Authenticate (int id,String username, String password) {
-		 return dao.Authenticate( id, username,  password);
+	public User Authenticate (User user) {
+		 return dao.Authenticate( user);
 	}
 	//GAME FUNCTIONS
 	//SCORE FUNCTIONS
