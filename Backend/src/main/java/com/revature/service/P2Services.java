@@ -3,7 +3,6 @@ package com.revature.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import com.revature.dao.P2DAO;
@@ -53,14 +52,20 @@ public class P2Services {
 	}
 	//GAME FUNCTIONS
 	//SCORE FUNCTIONS
-	public List<Win> top10Wins(Game game) {
-		return dao.top10Wins(game);
+	public List<Score> top10Scores(Game game) {
+		return dao.top10Scores(game);
+	}
+	public List<Score> getUserScores(User user, Game game) {
+		return dao.getUserScores(user, game);
 	}
 	//WIN FUNCTIONS
 	public void updateWin(Win win) {
 		 dao.updateWin(win);
 	}
-	public List<Score> top10Scores(Game game) {
-		return dao.top10Scores(game);
+	public List<Win> top10Wins(Game game) {
+		return dao.top10Wins(game);
+	}
+	public List<Win> getUserWins(User user, Game game) {
+		return dao.getUserWins(user, game);
 	}
 }

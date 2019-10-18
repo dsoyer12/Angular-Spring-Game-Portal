@@ -25,8 +25,9 @@ public interface P2DAO {
 	//GAME FUNCTIONS
 	//SCORE FUNCTIONS
 	public List<Score> top10Scores(Game game);
+	public List<Score> getUserScores(User user, Game game);
 	//WIN FUNCTIONS
 	public void updateWin(Win win);
 	public List<Win> top10Wins(Game game);
-
+	public List<Win> getUserWins(User user, Game game);
 }
