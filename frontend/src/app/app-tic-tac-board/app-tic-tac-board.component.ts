@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClientService } from '../service/http-client.service'
- 
+import { CanActivate,Router } from '@angular/router';
+
 
 
 
@@ -10,15 +11,22 @@ import { HttpClientService } from '../service/http-client.service'
   templateUrl: './app-tic-tac-board.component.html',
   styleUrls:[ './app-tic-tac-board.component.scss']
 })
-export class BoardComponent {
+export class BoardComponent implements CanActivate {
+canActivate(){
+     if ( localStorage.getItem("User"))  {
+       console.log(localStorage.getItem("User"));
+      return true; // all fine
+    } else {this.router.navigate(['login']);}
+  }
   private cells: string[] = [];
   private turn: string = 'X';
   private gameover = false;
   private winner = null;
-  constructor(private httpClientService: HttpClientService) {  }
+  constructor(private httpClientService: HttpClientService,private router: Router) {  }
 
 
   ngOnInit() {
+    this.canActivate();
     for (let i = 0; i < 9; i++) {
       this.cells[i] = null;
     }

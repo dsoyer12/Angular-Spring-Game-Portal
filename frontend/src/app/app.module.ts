@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 import { Game2Component } from './game2/game2.component';
 import { FloppybirdComponent } from './floppybird/floppybird.component';
-import { ColorjumperComponent } from './colorjumper/colorjumper.component';
+
 import { UserComponent } from './user/user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ScoreComponent } from './score/score.component';
@@ -23,6 +23,10 @@ import {CellComponent} from './cell.component';
 import { BoardComponent } from './app-tic-tac-board/app-tic-tac-board.component';
 
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { PacmanComponent } from './pacman/pacman.component';
+import { DonkeykongComponent } from './donkeykong/donkeykong.component';
+import { SonicComponent } from './sonic/sonic.component';
+import { NewsComponent } from './news/news.component';
 
 
 @NgModule({
@@ -33,7 +37,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
     FloppybirdComponent,
 
-    ColorjumperComponent,
+    
 
     UserComponent,
 
@@ -58,7 +62,23 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 
-    LandingPageComponent
+    LandingPageComponent,
+
+
+
+    PacmanComponent,
+
+
+
+    DonkeykongComponent,
+
+
+
+    SonicComponent,
+
+
+
+    NewsComponent
 
 
   ],

@@ -19,13 +19,21 @@ import {
 } from './constants';
 import { Piece, IPiece } from '../tetris-piece/tetris-piece.component';
 import { TetrisService } from '../tetris.service';
+import { CanActivate, Router } from '@angular/router';
 
 @Component({
   selector: 'app-tetris-board',
   templateUrl: './tetris-board.component.html',
   styleUrls: ['./tetris-board.component.scss']
 })
-export class TetrisBoardComponent implements OnInit {
+export class TetrisBoardComponent implements CanActivate {
+  canActivate(){
+     if ( localStorage.getItem("User"))  {
+       console.log(localStorage.getItem("User"));
+      return true; // all fine
+    } else {this.router.navigate(['login']);}
+  }
+
 
   @ViewChild('board', { static: true })
   canvas: ElementRef<HTMLCanvasElement>;
@@ -73,9 +81,10 @@ export class TetrisBoardComponent implements OnInit {
     }
   }
 
-  constructor(private service: TetrisService, private httpClientService: HttpClientService) {  }
+  constructor(private service: TetrisService, private httpClientService: HttpClientService, private router:Router) {  }
 
   ngOnInit() {
+    this.canActivate();
     this.initBoard();
     this.initNext();
     this.resetGame();
@@ -223,7 +232,7 @@ export class TetrisBoardComponent implements OnInit {
     console.log(response);
 
   }
-  
+
   getEmptyBoard(): number[][] {
     return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
   }
