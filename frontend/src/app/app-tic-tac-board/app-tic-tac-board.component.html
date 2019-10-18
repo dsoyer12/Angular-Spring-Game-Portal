@@ -1,7 +1,18 @@
 <div style="margin:20%; margin-left:10%;">
     <div class="grid">
 
-        <canvas class="board"></canvas>
+
+    <canvas #board class="board"></canvas>
+    <div class="right-column">
+        <div>
+            <h1>Tic-Tac-Toe</h1>
+            <p>X wins: {{ this.xwins }}</p>
+            <p>Y wins: {{ this.ywins }}</p>
+            <canvas #next class="next"></canvas>
+        </div>
+        <button (click)="init()" class="reset-button">Reset</button>
+        <br>
+    </div>
 
 
     </div>
