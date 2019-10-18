@@ -32,7 +32,9 @@ import { NewsComponent } from './news/news.component';
 
 
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+
 import { GamepageComponent } from './gamepage/gamepage.component';
+
 
 
 
