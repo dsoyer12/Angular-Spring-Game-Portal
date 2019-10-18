@@ -57,8 +57,9 @@ public class WinController {
 //		return resp;
 //	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value = "/add",method=RequestMethod.GET)
 	public ResponseEntity<String> updateWin(@RequestParam int user_id, @RequestParam int id) {
+		System.out.println("here");
 		ResponseEntity<String> resp = null;
 			try {
 				this.p2s.updateWin(new Win(0, new User(user_id, "", ""), new Game(id, "")));
