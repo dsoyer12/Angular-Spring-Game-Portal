@@ -1,0 +1,10 @@
+iframe {
+    overflow: hidden;
+    position: fixed;
+    margin: 40%;
+    margin-top: 20%;
+    canvas {
+        min-width: 700px !important;
+        height: auto !important;
+    }
+}
