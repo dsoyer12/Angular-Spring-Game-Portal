@@ -134,7 +134,18 @@ public class P2DAOImpl implements P2DAO {
 		}
 		return results;
 	}
-
+	@Override
+	public List<Score> getUserScores(User user, Game game) {
+		List<Score> results = null;
+		try (Session s = sf.openSession()) {
+			Query query = s.createQuery("FROM Score WHERE GAME_ID = :var1 AND USER_ID = :var2");
+			query.setParameter("var1", game.getId());
+			query.setParameter("var2", user.getUser_id());
+			results = query.getResultList();
+			s.close();
+		}
+		return results;
+	}
 	// WIN FUNCTIONS
 	@Transactional
 	@Override
@@ -170,6 +181,17 @@ public class P2DAOImpl implements P2DAO {
 			results.remove(results.size() - 1);
 		}
 		return results;
-	}	
-
+	}
+	@Override
+	public List<Win> getUserWins(User user, Game game) {
+		List<Win> results = null;
+		try (Session s = sf.openSession()) {
+			Query query = s.createQuery("FROM Win WHERE GAME_ID = :var1 AND USER_ID = :var2");
+			query.setParameter("var1", game.getId());
+			query.setParameter("var2", user.getUser_id());
+			results = query.getResultList();
+			s.close();
+		}
+		return results;
+	}
 }

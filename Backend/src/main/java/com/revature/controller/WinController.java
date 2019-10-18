@@ -69,5 +69,9 @@ public class WinController {
 			}
 		return resp;
 	}
-
+	
+	@RequestMapping(value = "/user", method=RequestMethod.GET)
+	public ResponseEntity<List<Win>> userWin(@RequestParam int user_id, @RequestParam int id) {
+		return new ResponseEntity<>(this.p2s.getUserWins(new User(user_id, "", ""), new Game(id, "")), HttpStatus.OK);
+	}
 }

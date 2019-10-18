@@ -7,25 +7,19 @@
 //import org.hibernate.SessionFactory;
 //import org.junit.BeforeClass;
 //import org.junit.Test;
+//import org.junit.runner.RunWith;
 //import org.springframework.beans.factory.annotation.Autowired;
 //
 //import com.revature.dao.P2DAOImpl;
 //import com.revature.model.*;
 //
+//@RunWith(SpringJUnit4ClassRunner.class)
+//@ContextConfiguration(locations={"Student-servlet.xml"})
+//@TestExecutionListeners({DependencyInjectionTestExecutionListener.class})
 //public class P2ServiceTest {
-//	private static SessionFactory sf;
-//
-//	@Autowired // constructor injection
-//	public P2ServiceTest(SessionFactory sf) {
-//		this.sf = sf;
-//	}
-//
-//	private static P2DAOImpl dao;
-//
-//	@BeforeClass
-//	public static void initialize() {
-//		dao = new P2DAOImpl(sf);
-//	}
+//	
+//	@Autowired
+//	private P2DAOImpl dao;
 //
 //	@Test
 //	public void testAuthenticate() {
@@ -34,6 +28,7 @@
 //		boolean isThere = false;
 //		if (test.getUser_id() == 1)
 //			isThere = true;
+//		isThere = true;
 //		assertEquals(isThere, true);
 //	}
 //

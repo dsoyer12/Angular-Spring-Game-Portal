@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.revature.model.Game;
 import com.revature.model.Score;
@@ -47,8 +46,6 @@ public class ScoreController {
 		ResponseEntity<String> resp = null;
 			try {
 				Score input = new Score(scores, new User(user_id, "", ""), new Game(id, ""));
-				System.out.println("Adding score");
-				System.out.println(input);
 				this.p2s.addScore(input);
 				resp = new ResponseEntity<>("SCORE CREATED SUCCESSFULLY", HttpStatus.OK);
 			} catch(Exception e) {
@@ -58,5 +55,8 @@ public class ScoreController {
 		return resp;
 	}
 	
-
+	@RequestMapping(value = "/user", method=RequestMethod.GET)
+	public ResponseEntity<List<Score>> userScore(@RequestParam int user_id, @RequestParam int id) {
+		return new ResponseEntity<>(this.p2s.getUserScores(new User(user_id, "", ""), new Game(id, "")), HttpStatus.OK);
+	}
 }
