@@ -8,16 +8,7 @@ import { HttpClientService } from '../service/http-client.service'
 @Component({
   selector: 'my-board',
   templateUrl: './app-tic-tac-board.component.html',
-  styles: [
-    ` 
-      .ourboard{
-        
-  margin-left:30%;
-        padding:0;
-      }
-      
-  }`
-  ]
+  styleUrls:[ './app-tic-tac-board.component.scss']
 })
 export class BoardComponent {
   private cells: string[] = [];
@@ -86,7 +77,6 @@ export class BoardComponent {
           var user = JSON.parse(localStorage.getItem('User'));
           console.log("user id: " + user.user_id);
 
-          console.log("here2 "+user.userid);
 
           this.httpClientService.incWin(user.userid,3);
         }
