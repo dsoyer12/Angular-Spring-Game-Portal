@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
  username: any;
  password: any;
 
-    
-  
+
+
   signup(username,password){
     this.httpClientService.getSignup(this.username,this.password).subscribe(
       response => this.handleSuccessfulResponse(response),
@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
      console.log(user);
      if(user.user_id!=0){
 
-      this.router.navigate(['']);
+      this.router.navigate(['home']);
      }
   }
   ngOnInit() {

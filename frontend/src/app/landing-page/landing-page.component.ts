@@ -22,9 +22,11 @@ signup(username,password){
     this.httpClientService.getSignup(this.username,this.password).subscribe(
       response => this.handleSuccessfulResponse(response),
     );
+    this.router.navigate(['login']);
   }
   handleSuccessfulResponse(response) {
 
      console.log(response);
+
 
 }}
