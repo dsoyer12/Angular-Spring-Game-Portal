@@ -1,5 +1,7 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+<p><strong><center>FLOPPY BIRD LEADERBOARD</center></strong></p>
 <table class="table table-bordered" border="1">
     <thead></thead>
     <tr>
@@ -11,9 +13,102 @@
     </tr>
 
     <tbody>
-        <tr class="bg-warning rounded-pill" *ngFor="let leader of MyLeader ">
-            <td>{{User.username}}</td>
+        <tr class="bg-warning rounded-pill" *ngFor="let Score of MyGame1">
+            <td>{{Score.user.username}}</td>
             <td>{{Score.scores}}</td>
+            <td>{{Score.game.description}}</td>
+
+
+
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<p><strong><center>TETRIS LEADERBOARD</center></strong></p>
+<table class="table table-bordered" border="1">
+    <thead></thead>
+    <tr>
+        <th>Username</th>
+        <th>
+            Score</th>
+        <th>
+            Description</th>
+    </tr>
+
+    <tbody>
+        <tr class="bg-warning rounded-pill" *ngFor="let Score of MyGame2">
+            <td>{{Score.user.username}}</td>
+            <td>{{Score.scores}}</td>
+            <td>{{Score.game.description}}</td>
+
+
+
+        </tr>
+    </tbody>
+</table>
+<br>
+<p><strong><center>PONG LEADERBOARD</center></strong></p>
+<table class="table table-bordered" border="1">
+    <thead></thead>
+    <tr>
+        <th>Username</th>
+        <th>
+            Win-Count</th>
+        <th>
+            Description</th>
+    </tr>
+
+    <tbody>
+        <tr class="bg-warning rounded-pill" *ngFor="let Score of MyGame3">
+            <td>{{Score.user.username}}</td>
+            <td>{{Score.count}}</td>
+            <td>{{Score.game.description}}</td>
+
+
+
+        </tr>
+    </tbody>
+</table>
+<br>
+<p><strong><center>TIC-TAC-TOE LEADERBOARD</center></strong></p>
+<table class="table table-bordered" border="1">
+    <thead></thead>
+    <tr>
+        <th>Username</th>
+        <th>
+            Win-Count</th>
+        <th>
+            Description</th>
+    </tr>
+
+    <tbody>
+        <tr class="bg-warning rounded-pill" *ngFor="let Score of MyGame4">
+            <td>{{Score.user.username}}</td>
+            <td>{{Score.count}}</td>
+            <td>{{Score.game.description}}</td>
+
+
+
+        </tr>
+    </tbody>
+</table>
+<br>
+<p><strong><center>BATTLESHIP LEADERBOARD</center></strong></p>
+<table class="table table-bordered" border="1">
+    <thead></thead>
+    <tr>
+        <th>Username</th>
+        <th>
+            Win-Count</th>
+        <th>
+            Description</th>
+    </tr>
+
+    <tbody>
+        <tr class="bg-warning rounded-pill" *ngFor="let Score of MyGame5">
+            <td>{{Score.user.username}}</td>
+            <td>{{Score.count}}</td>
             <td>{{Score.game.description}}</td>
 
 
