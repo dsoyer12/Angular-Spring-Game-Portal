@@ -1,19 +1,18 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-
 <table class="table table-bordered" border="1">
     <thead></thead>
     <tr>
-        <th>Score_ID</th>
+        <th>Username</th>
         <th>
             Score</th>
         <th>
-            Game</th>
+            Description</th>
     </tr>
 
     <tbody>
-        <tr class="bg-warning rounded-pill" *ngFor="let Score of MyScores ">
-            <td>{{Score.id}}</td>
+        <tr class="bg-warning rounded-pill" *ngFor="let leader of MyLeader ">
+            <td>{{User.username}}</td>
             <td>{{Score.scores}}</td>
             <td>{{Score.game.description}}</td>
 

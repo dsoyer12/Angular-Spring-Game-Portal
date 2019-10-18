@@ -1,0 +1,33 @@
+<div class="grid">
+    <canvas #board class="board"></canvas>
+    <div class="right-column">
+        <div>
+            <h1>Tic-Tac-Toe</h1>
+            <p>X wins: {{ points }}</p>
+            <p>Y wins: {{ lines }}</p>
+            <canvas #next class="next"></canvas>
+        </div>
+        <button (click)="init()" class="reset-button">Reset</button>
+        <br>
+    </div>
+</div>
+<!--<div *ngif="clicked"> -->
+    <div class="ourboard">
+        <div class="clearfix">
+        </div>
+        <div class="clearfix">
+            <my-cell *ngFor="let cell of cells | slice: 0: 3; let i = index" [value]="cell" (userClick)=clickHandler(i)>
+            </my-cell><br>
+        </div>
+        <div class="clearfix">
+            <my-cell *ngFor="let cell of cells | slice: 3: 6; let i = index" [value]="cell"
+                (userClick)=clickHandler(i+3)></my-cell><br>
+        </div>
+        <div class="clearfix">
+            <my-cell *ngFor="let cell of cells | slice: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+6)>
+            </my-cell><br>
+        </div>
+        <div *ngIf="winner">
+            winner is {{winner}}
+        </div>
+    </div>

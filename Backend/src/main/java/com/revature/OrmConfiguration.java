@@ -21,9 +21,9 @@ public class OrmConfiguration {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("oracle.jdbc.driver.OracleDriver");
-		dataSource.setUrl(System.getenv("DEMO_DB_URL"));
-		dataSource.setUsername(System.getenv("DEMO_DB_USERNAME"));
-		dataSource.setPassword(System.getenv("DEMO_DB_PASSWORD"));
+		dataSource.setUrl(System.getenv("GAME_DB_URL"));
+		dataSource.setUsername(System.getenv("GAME_DB_USERNAME"));
+		dataSource.setPassword(System.getenv("GAME_DB_PASSWORD"));
 		return dataSource;
 	}
 	
