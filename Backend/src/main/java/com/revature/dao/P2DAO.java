@@ -30,5 +30,4 @@ public interface P2DAO {
 	public void updateWin(Win win);
 	public List<Win> top10Wins(Game game);
 
-	User Authenticate(int id, String username, String password);
 }

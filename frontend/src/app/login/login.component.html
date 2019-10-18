@@ -1,14 +1,8 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 <div class="box">
-
-
-
-
-
-
-
-    <mat-card>
-        <img class="logo" src="../../assets/bear.png">
+    <mat-card class="mt-5">
+        <img class="logo" src="../../assets/transparentBear.png">
         <mat-card-header>
 
         </mat-card-header>
@@ -17,27 +11,28 @@
                 <table>
                     <tr>
                         <td>
-                            <input matInput id="inputEmail" class="form-control" placeholder="Username" [(ngModel)]="username" name="username" required>
+                            <input matInput id="inputEmail" class="form-control rounded-pill" placeholder="Username" [(ngModel)]="username" name="username" required>
 
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <mat-form-field class=" example-full-width">
-                                <input matInput id="inputEmail" class="form-control" placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
+                                <input matInput id="inputEmail" class="form-control rounded-pill" placeholder="Password" [(ngModel)]="password" type="password" name="password" required>
 
                             </mat-form-field>
                         </td>
                     </tr>
                 </table>
             </form>
+            
             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
         </mat-card-content>
         <mat-card-actions>
-            <button class="btn btn-lg btn-primary btn-block btnstyle" mat-raised-button (click)="login()" color="primary">Log in!</button>
-            <button class="btn btn-lg btn-primary btn-block btnstyle" mat-raised-button (click)="singUp()" color="primary">Sign up!</button>
+            <button class="btn btn-lg btn-info btn-block btnstyle rounded-pill" mat-raised-button (click)="login()" color="primary">Log in!</button>
+            <button class="btn btn-lg btn-dark btn-block btnstyle rounded-pill" mat-raised-button (click)="singUp()" color="primary">Sign up!</button>
 
 
         </mat-card-actions>
     </mat-card>
-</div>
+    </div>

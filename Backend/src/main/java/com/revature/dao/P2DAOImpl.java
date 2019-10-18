@@ -98,7 +98,7 @@ public class P2DAOImpl implements P2DAO {
 
 	// USER FUNCTIONS
 	@Override
-	public User Authenticate(int id,String username, String password) {
+	public User Authenticate(User user) {
 		User target = null;
 		try (Session s = sf.openSession()) {
 
@@ -170,13 +170,6 @@ public class P2DAOImpl implements P2DAO {
 			results.remove(results.size() - 1);
 		}
 		return results;
-	}
-
-	@Override
-	public User Authenticate(User user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
+	}	
 
 }
