@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import  'src/floppy.js';
+import { HttpClientService } from '../service/http-client.service';
 
 // System.import('floppy.js'); //or below one
 declare var startGame2: any;
+declare var  getDead:any;
 
 @Component({
   selector: 'app-floppybird',
@@ -12,24 +14,36 @@ declare var startGame2: any;
 export class FloppybirdComponent implements OnInit {
 
 
-  constructor() { }
+  constructor(private httpClientService: HttpClientService) { }
 
   ngOnInit() {
+
+startGame2();
+
+
+
   }
 
 
 
-  show2 = false;
-  showing2 = true;
-genGame(){
 
+SendScore(){
+if(localStorage.getItem("FlappyScore")!=null){
+  console.log("here");
+  let points = localStorage.getItem("FlappyScore");
+var user = JSON.parse(localStorage.getItem('User'));
+      this.httpClientService.setScores(points
+        ,user.user_id,2).subscribe(
+        response => this.handleSuccessfulResponse(response),
+    );//added inc function
 
 }
-  toggleDiv2(){
 
-   this.show2 = !this.show2;
+}
 
-   startGame2();
+ handleSuccessfulResponse(response) {
+
+    console.log(response);
 
   }
 
