@@ -1,36 +1,38 @@
-<div class="grid">
+<div style="margin:20%; margin-left:10%;">
+    <div class="grid">
 
-	<canvas #board class="board" style="padding-right: 10em"></canvas>
+        <canvas class="board"></canvas>
 
 
+    </div>
+    <!--<div *ngif="clicked"> -->
+    <div class="ourboard" style="">
+        <div class="clearfix"></div>
+        <div class="clearfix">
+            <my-cell *ngFor="let cell of cells | slice: 0: 3; let i = index" [value]="cell" (userClick)=clickHandler(i)>
+            </my-cell>
+            <br>
+        </div>
+        <div class="clearfix">
+            <my-cell *ngFor="let cell of cells | slice: 3: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+3)>
+            </my-cell>
+            <br>
+        </div>
+        <div class="clearfix">
+            <my-cell *ngFor="let cell of cells | slice: 6; let i = index" [value]="cell" (userClick)=clickHandler(i+6)>
+            </my-cell>
+            <br>
+        </div>
+        <div *ngIf="winner">winner is {{winner}}</div>
+    </div>
+
+    <div class="" style="float: right; padding:1px 0">
+        <div>
+            <h1>Tic-Tac-Toe</h1>
+            <p>X wins: {{ points }}</p>
+            <p>Y wins: {{ lines }}</p>
+            <canvas #next class="next"></canvas>
+        </div>
+        <button (click)="init()" class="play-button" style="width:120px;height:50px; text-align:center;">Reset</button>
+    </div>
 </div>
-<!--<div *ngif="clicked"> -->
-<div class="ourboard" style="margin-top: 100px">
-	<div class="clearfix"></div>
-	<div class="clearfix" >
-		<my-cell *ngFor="let cell of cells | slice: 0: 3; let i = index"
-			[value]="cell" (userClick)=clickHandler(i)> </my-cell>
-		<br>
-	</div>
-	<div class="clearfix">
-		<my-cell *ngFor="let cell of cells | slice: 3: 6; let i = index"
-			[value]="cell" (userClick)=clickHandler(i+3)></my-cell>
-		<br>
-	</div>
-	<div class="clearfix">
-		<my-cell *ngFor="let cell of cells | slice: 6; let i = index"
-			[value]="cell" (userClick)=clickHandler(i+6)> </my-cell>
-		<br>
-	</div>
-	<div *ngIf="winner">winner is {{winner}}</div>
-</div>
-
-<div class="" style="float: right; padding:1px 0">
-		<div>
-			<h1>Tic-Tac-Toe</h1>
-			<p>X wins: {{ points }}</p>
-			<p>Y wins: {{ lines }}</p>
-			<canvas #next class="next"></canvas>
-		</div>
-		<button (click)="init()" class="play-button" style="width:120px;height:50px; text-align:center;">Reset</button>
-	</div>
