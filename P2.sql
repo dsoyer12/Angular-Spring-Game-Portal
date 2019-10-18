@@ -116,7 +116,7 @@
     INTO USER_(USERNAME, PASSWORD)
     VALUES ('Ilya', 'S')
     INTO USER_(USERNAME, PASSWORD)
-    VALUES ('Kanh', 'D')
+    VALUES ('Khanh', 'D')
     INTO USER_(USERNAME, PASSWORD)
     VALUES ('George', 'I')
     SELECT * FROM DUAL;
