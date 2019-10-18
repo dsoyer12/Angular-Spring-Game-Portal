@@ -23,10 +23,14 @@ import {CellComponent} from './cell.component';
 import { BoardComponent } from './app-tic-tac-board/app-tic-tac-board.component';
 
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
+
 import { PacmanComponent } from './pacman/pacman.component';
 import { DonkeykongComponent } from './donkeykong/donkeykong.component';
 import { SonicComponent } from './sonic/sonic.component';
 import { NewsComponent } from './news/news.component';
+
 
 
 @NgModule({
@@ -66,6 +70,9 @@ import { NewsComponent } from './news/news.component';
 
 
 
+
+    LeaderboardComponent,
+
     PacmanComponent,
 
 
@@ -79,6 +86,7 @@ import { NewsComponent } from './news/news.component';
 
 
     NewsComponent
+
 
 
   ],
