@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootswatch/dist/superhero/variables";
+@import "../node_modules/bootstrap-scss";
+@import "../node_modules/bootswatch/dist/superhero/bootswatch";
+@import "../node_modules/bootswatch/dist/superhero/bootstrap.min.css";
+
+
 
 #Floppycanvas {
   border: 1px solid #000000;
@@ -12,7 +18,7 @@ app-user {
 
 // tetris
 * {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Orbitron';
 }
 
 .grid {
@@ -28,6 +34,7 @@ app-user {
 
 .game-board {
   border: solid 2px;
+float: right;
 }
 
 .play-button {
