@@ -23,6 +23,7 @@ import {CellComponent} from './cell.component';
 import { BoardComponent } from './app-tic-tac-board/app-tic-tac-board.component';
 
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
 
 @NgModule({
@@ -58,7 +59,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 
-    LandingPageComponent
+    LandingPageComponent,
+
+
+
+    LeaderboardComponent
 
 
   ],
