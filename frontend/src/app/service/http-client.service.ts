@@ -65,7 +65,7 @@ export class HttpClientService {
     params3 = params3.append('username',username);
     params3 = params3.append('password',password);
 
-    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params3});}
+    return this.httpClient.get('http://localhost:8082/P2/user',{params:params3});}
 
   setScores(points,user_id,game_id){
     let params2 =new HttpParams();
@@ -85,7 +85,7 @@ export class HttpClientService {
     params3 = params3.append('user_id',user_id);
     params3 = params3.append('id',game_id);
 ​
-    return this.httpClient.get('http://localhost:8082/P2/score/add',{params:params3});
+    return this.httpClient.get('http://localhost:8082/P2/win/add',{params:params3});
 ​
   }
 
@@ -95,4 +95,19 @@ export class HttpClientService {
     console.log("test call");
     return this.httpClient.get<Score[]>('http://localhost:8082/P2/score/all');
   }
+  getTopTenScores(game_id)
+  {
+    let params4= new HttpParams();
+    console.log(game_id);
+    params4=params4.append("id",game_id);
+    return this.httpClient.get<Score[]>('http://localhost:8082/P2/score/top10',{params:params4});
+  }
+  getTopTenWins(game_id)
+  {
+    let params5= new HttpParams();
+    console.log(game_id);
+    params5=params5.append("id",game_id);
+    return this.httpClient.get<Score[]>('http://localhost:8082/P2/win/top10',{params:params5});
+  }
+
 }

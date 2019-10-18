@@ -12,7 +12,9 @@ import { CanActivate,Router } from '@angular/router';
   styleUrls:[ './app-tic-tac-board.component.scss']
 })
 export class BoardComponent implements CanActivate {
-canActivate(){
+  xwins=0;
+  ywins=0;
+  canActivate(){
      if ( localStorage.getItem("User"))  {
        console.log(localStorage.getItem("User"));
       return true; // all fine
@@ -22,6 +24,7 @@ canActivate(){
   private turn: string = 'X';
   private gameover = false;
   private winner = null;
+  
   constructor(private httpClientService: HttpClientService,private router: Router) {  }
 
 
@@ -82,11 +85,18 @@ canActivate(){
         console.log("here "+this.winner);
 
         if(this.winner==='X'){
+          this.xwins=1+this.xwins;
           var user = JSON.parse(localStorage.getItem('User'));
-          console.log("user id: " + user.user_id);
+          //console.log("user id: " + user.user_id);
+          
 
-
-          this.httpClientService.incWin(user.userid,3);
+          this.httpClientService.incWin(user.user_id,3).subscribe(
+            response => this.handleSuccessfulResponse(response),
+          );
+          
+        }
+        if(this.winner==='O'){
+          this.ywins=1+this.ywins;
         }
         return;
       }
@@ -100,4 +110,9 @@ canActivate(){
       this.winner = 'tie';
     }
   }
-}
+  handleSuccessfulResponse(response: Object): void {
+     console.log(response);
+
+     }
+  }
+

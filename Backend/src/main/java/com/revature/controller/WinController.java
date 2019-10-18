@@ -7,15 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.model.Game;
-import com.revature.model.Score;
 import com.revature.model.User;
 import com.revature.model.Win;
 import com.revature.service.P2Services;
@@ -57,8 +54,9 @@ public class WinController {
 //		return resp;
 //	}
 	
-	@RequestMapping(method=RequestMethod.GET)
+	@RequestMapping(value = "/add",method=RequestMethod.GET)
 	public ResponseEntity<String> updateWin(@RequestParam int user_id, @RequestParam int id) {
+		System.out.println("here");
 		ResponseEntity<String> resp = null;
 			try {
 				this.p2s.updateWin(new Win(0, new User(user_id, "", ""), new Game(id, "")));
@@ -69,5 +67,9 @@ public class WinController {
 			}
 		return resp;
 	}
-
+	
+	@RequestMapping(value = "/user", method=RequestMethod.GET)
+	public ResponseEntity<List<Win>> userWin(@RequestParam int user_id, @RequestParam int id) {
+		return new ResponseEntity<>(this.p2s.getUserWins(new User(user_id, "", ""), new Game(id, "")), HttpStatus.OK);
+	}
 }

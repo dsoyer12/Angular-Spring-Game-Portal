@@ -33,6 +33,8 @@ import { NewsComponent } from './news/news.component';
 
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
+import { GamepageComponent } from './gamepage/gamepage.component';
+
 
 
 
@@ -45,7 +47,7 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
     FloppybirdComponent,
 
-    
+
 
     UserComponent,
 
@@ -61,11 +63,11 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
     TetrisBoardComponent,
 
-    
+
     BoardComponent,
-    
+
     CellComponent,
-    
+
     BoardComponent,
 
 
@@ -95,7 +97,9 @@ import { LeaderboardComponent } from './leaderboard/leaderboard.component';
 
     LeaderboardComponent,
 
-    NewsComponent
+    NewsComponent,
+
+    GamepageComponent
 
 
 

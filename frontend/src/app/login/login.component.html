@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-<div class="box">
+<div class="box" style="margin:20%;">
     <mat-card class="mt-5">
         <img class="logo" src="../../assets/transparentBear.png">
         <mat-card-header>
@@ -25,14 +25,14 @@
                     </tr>
                 </table>
             </form>
-            
+
             <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
         </mat-card-content>
         <mat-card-actions>
             <button class="btn btn-lg btn-info btn-block btnstyle rounded-pill" mat-raised-button (click)="login()" color="primary">Log in!</button>
-            <button class="btn btn-lg btn-dark btn-block btnstyle rounded-pill" mat-raised-button (click)="singUp()" color="primary">Sign up!</button>
+            <button class="btn btn-lg btn-dark btn-block btnstyle rounded-pill" mat-raised-button (click)="signup()" color="primary">Sign up!</button>
 
 
         </mat-card-actions>
     </mat-card>
-    </div>
+</div>
