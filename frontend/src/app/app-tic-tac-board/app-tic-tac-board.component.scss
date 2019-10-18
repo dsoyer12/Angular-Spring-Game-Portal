@@ -1,14 +1,10 @@
+.ourboard {
+	padding-right: 90% !important;
+}
 
-.reset-button{
-    background-color: skyblue;
-    font-size: 16px;
-    padding: 15px 30px;
-    cursor: pointer;
-  }
-.ourboard{
-        
-    margin-left:30%;
-          padding:0;
-          size:200%;
-        }
-        
+.gametext {
+	  line-height: 200px;
+  height: 200px;
+  border: 3px solid green;
+  text-align: center;
+}
