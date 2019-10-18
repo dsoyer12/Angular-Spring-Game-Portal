@@ -14,12 +14,18 @@ import { AuthGuard } from './auth.guard';
 import { PacmanComponent } from './pacman/pacman.component';
 import { DonkeykongComponent } from './donkeykong/donkeykong.component';
 import { SonicComponent } from './sonic/sonic.component';
+
+import { GamepageComponent } from './gamepage/gamepage.component';
+
+
+
 import { ScoreComponent } from './score/score.component';
 import {LeaderboardComponent}from './leaderboard/leaderboard.component';
 
 
 
-const routes: Routes = [{ path:'leaderboard',canActivate: [AuthGuard], component: LeaderboardComponent},{ path:'score',canActivate: [AuthGuard], component: ScoreComponent}, { path:'donkeykong',canActivate: [AuthGuard], component: DonkeykongComponent},{ path:'sonic',canActivate: [AuthGuard], component: SonicComponent},{ path:'pacman',canActivate: [AuthGuard], component: PacmanComponent},{ path:'tictac',canActivate: [AuthGuard], component: BoardComponent},{ path:'', component: LandingPageComponent},{ path:'tetris', canActivate: [AuthGuard],component: TetrisBoardComponent},{ path:'user',canActivate: [AuthGuard], component: UserComponent}, { path:'floppy',canActivate: [AuthGuard], component: FloppybirdComponent},{ path:'pang',canActivate: [AuthGuard], component: Game2Component},{ path:'login', component: LoginComponent}];
+const routes: Routes = [{ path:'home',canActivate: [AuthGuard], component: GamepageComponent},{ path:'leaderboard',canActivate: [AuthGuard], component: LeaderboardComponent},{ path:'score',canActivate: [AuthGuard], component: ScoreComponent}, { path:'donkeykong',canActivate: [AuthGuard], component: DonkeykongComponent},{ path:'sonic',canActivate: [AuthGuard], component: SonicComponent},{ path:'pacman',canActivate: [AuthGuard], component: PacmanComponent},{ path:'tictac',canActivate: [AuthGuard], component: BoardComponent},{ path:'', component: LandingPageComponent},{ path:'tetris', canActivate: [AuthGuard],component: TetrisBoardComponent},{ path:'user',canActivate: [AuthGuard], component: UserComponent}, { path:'floppy',canActivate: [AuthGuard], component: FloppybirdComponent},{ path:'pang',canActivate: [AuthGuard], component: Game2Component},{ path:'login', component: LoginComponent}];
+
 
 
 @NgModule({
