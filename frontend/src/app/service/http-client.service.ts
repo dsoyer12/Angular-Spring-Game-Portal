@@ -65,7 +65,7 @@ export class HttpClientService {
     params3 = params3.append('username',username);
     params3 = params3.append('password',password);
 
-    return this.httpClient.get('http://localhost:8082/P2/user/signup',{params:params3});}
+    return this.httpClient.get('http://localhost:8082/P2/user',{params:params3});}
 
   setScores(points,user_id,game_id){
     let params2 =new HttpParams();

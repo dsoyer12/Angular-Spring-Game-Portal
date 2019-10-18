@@ -32,11 +32,7 @@ import { NewsComponent } from './news/news.component';
 
 
 import { LeaderboardComponent } from './leaderboard/leaderboard.component';
-
-import { PacmanComponent } from './pacman/pacman.component';
-import { DonkeykongComponent } from './donkeykong/donkeykong.component';
-import { SonicComponent } from './sonic/sonic.component';
-import { NewsComponent } from './news/news.component';
+import { GamepageComponent } from './gamepage/gamepage.component';
 
 
 
@@ -49,7 +45,7 @@ import { NewsComponent } from './news/news.component';
 
     FloppybirdComponent,
 
-    
+
 
     UserComponent,
 
@@ -65,11 +61,11 @@ import { NewsComponent } from './news/news.component';
 
     TetrisBoardComponent,
 
-    
+
     BoardComponent,
-    
+
     CellComponent,
-    
+
     BoardComponent,
 
 
@@ -99,7 +95,9 @@ import { NewsComponent } from './news/news.component';
 
     LeaderboardComponent,
 
-    NewsComponent
+    NewsComponent,
+
+    GamepageComponent
 
 
 
