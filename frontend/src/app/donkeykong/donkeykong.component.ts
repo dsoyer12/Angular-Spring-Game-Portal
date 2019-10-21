@@ -17,6 +17,7 @@ canActivate(){
 
   constructor(private httpClientService: HttpClientService,private router: Router) { }
   ngOnInit() {
+    this.canActivate();
   }
 
 }

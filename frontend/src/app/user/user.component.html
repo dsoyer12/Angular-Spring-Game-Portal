@@ -1,14 +1,14 @@
 <table style="z-index: 99; max-height:5%; padding:1%;" class="table table-bordered" border="1" style="background-color: #005eb6;">
     <thead></thead>
     <tr>
-        <th> Users </th>
+        <th> User </th>
         <th> User_ID </th>
     </tr>
 
     <tbody>
-        <tr *ngFor="let User of Users">
-            <td>{{User.username}}</td>
-            <td>{{User.user_id}}</td>
+        <tr>
+            <td>{{curruser.username}}</td>
+            <td>{{curruser.user_id}}</td>
 
         </tr>
     </tbody>

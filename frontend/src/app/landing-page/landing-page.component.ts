@@ -14,8 +14,25 @@ export class LandingPageComponent implements OnInit {
 
  username: any;
  password: any;
+ notLoggedIn;
   ngOnInit() {
+this.checkLogin();
+
+
   }
+checkLogin(){
+if (localStorage.getItem("User") === null){
+  this.notLoggedIn = true;
+} else {
+this.notLoggedIn = false;
+
+}
+
+
+
+}
+
+
 signup(username,password){
   console.log(this.username);
   console.log(this.password);

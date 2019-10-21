@@ -17,6 +17,16 @@ export class UserComponent implements CanActivate {
 
 
   Users: any[];
+curruser =  localStorage.getItem("User");
+
+
+
+
+
+
+
+
+
 
   constructor(
     private httpClientService: HttpClientService, private router:Router
@@ -30,6 +40,7 @@ export class UserComponent implements CanActivate {
 
   handleSuccessfulResponse(response) {
     this.Users = response;
+
   }
 
 }

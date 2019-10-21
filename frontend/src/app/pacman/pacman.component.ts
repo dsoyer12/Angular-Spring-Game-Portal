@@ -17,6 +17,7 @@ canActivate(){
   constructor(private router:Router) { }
 
   ngOnInit() {
+    this.canActivate();
   }
 
 }

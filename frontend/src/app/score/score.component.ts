@@ -9,6 +9,7 @@ import { HttpClientService } from '../service/http-client.service';
 export class ScoreComponent implements OnInit {
 
   Scores: any[];
+
   MyScores: any[] = [];
   constructor(
     private httpClientService: HttpClientService

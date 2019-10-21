@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CurrentUser} from '../service/http-client.service';
 import {User} from '../service/http-client.service';
-import { Router } from '@angular/router';
+import { Router, CanActivate } from '@angular/router';
 
 import { HttpClientService } from '../service/http-client.service';
 
@@ -10,8 +10,13 @@ import { HttpClientService } from '../service/http-client.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
-
+export class LoginComponent implements CanActivate {
+canActivate(){
+     if ( localStorage.getItem("User")===null)  {
+       console.log("no user found");
+      return true; // all fine
+    } else {this.router.navigate(['']);}
+  }
   constructor(
     private httpClientService: HttpClientService, private router: Router
   ) { }
@@ -48,6 +53,7 @@ export class LoginComponent implements OnInit {
      }
   }
   ngOnInit() {
+    this.canActivate();
   }
 
 }

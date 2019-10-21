@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
+import { HttpClientService } from '../service/http-client.service';
 
 @Component({
   selector: 'app-sonic',
@@ -16,6 +18,7 @@ canActivate(){
   constructor(private httpClientService: HttpClientService,private router: Router) { }
 
   ngOnInit() {
+    this.canActivate();
   }
 
 }
